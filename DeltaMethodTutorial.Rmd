@@ -90,7 +90,7 @@ Given that
 $$\sqrt(n)\left(f(\hat\theta)-f(\theta)\right)\; \rightarrow N(0\,, var(\theta)).$$
 and using for the probability (p) the formula in (4)
 
-$$\widehat{SE}(RD)\,=f'(\theta)(var(\theta))\;=\; \sqrt{\frac{p(1-p)}{n}}$$
+$$SE(\widehat{RD})\,=f'(\theta)(var(\theta))\;=\; \sqrt{\frac{p(1-p)}{n}}$$
 We have that for the RD the SE is  
 $$SE(\widehat{RD})\,=\, \sqrt{\frac{(1-\hat p_{1})}{n_{1}}}\,+\,\sqrt{\frac{(1-\hat p_{2})}{n_{2}}}\,=\,\sqrt{\frac{(1-\hat p_{1})}{n_{1}}\,+\,\frac{(1-\hat p_{2})}{n_{2}}}$$
 
@@ -104,7 +104,7 @@ We have that
 $$SE(log(\widehat{RR}))\,=\, \sqrt{\frac{(1-\hat p_{1})}{\hat p_{1}n_{1}}}\,+\,\sqrt{\frac{(1-\hat p_{2})}{\hat p_{2}n_{2}}}\,=\,\sqrt{\frac{(1-\hat p_{1})}{\hat p_{1}n_{1}}\,+\,\frac{(1-\hat p_{2})}{\hat p_{2}n_{2}}}$$
 
 ### Odds Ratio (OR) 
-$$\widehat{OR} \,=\, \frac{\hat \theta_{1}}{\hat \theta_{2}} \,=\, log\left(\frac{\hat p_{1}/(1-\hat p_{1})}{\hat p_{2}/(1-\hat p_{1})}\right)\,=\,log\left(\frac{\text{n}_{11}\text{n}_{22}}{\text{n}_{12}\text{n}_{21}}\right)\,$$
+$$\widehat{OR} \,=\, \frac{\hat \theta_{1}}{\hat \theta_{2}} \,=\, log\left(\frac{\hat p_{1}/(1-\hat p_{1})}{\hat p_{2}/(1-\hat p_{2})}\right)\,=\,log\left(\frac{\text{n}_{11}\text{n}_{22}}{\text{n}_{12}\text{n}_{21}}\right)\,$$
 Given that
 $$\sqrt(n)\left(f(\hat\theta)-f(\theta)\right)\; \rightarrow N(0\,, var(\theta))$$
 then
