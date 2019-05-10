@@ -36,7 +36,7 @@ options(scipen=999, digits=5, tinytex.verbose = TRUE)
 
 The delta method is really a theorem which states that a smooth function of an asymptotically normal estimator is also asymptotically normally distributed. It can also be viewed as a technique for approximating variance of a function of a nonlinear function of a random variable [@Armi2005]. 
 
-In epidemiology we use routinely the delta method to compute the standard error (SE) of the risk difference (RD), the risk ratio (RR), and the odds ratio (OR) [@Agresti2010]. Often in addition to reporting parameters fit by a model, we need to report some marginal transformation of these parameters. The transformation can generate the point estimates of our desired values, but the SE of these point estimates are not so easily calculated. 
+In epidemiology we use routinely the delta method to compute the standard error (SE) of the risk difference (RD), the risk ratio (RR), and the odds ratio (OR) [@Agresti2010]. Often in addition to reporting parameters fitted by a model, we need to report some marginal transformation of these parameters. The transformation can generate the point estimates of our desired values, but the SE of these point estimates are not so easily calculated. 
 
 For instance, in causal inference we compute the average treatment effect (ATE), namely $\Psi$ as a function of two random variables (i.e., the potential outcomes or counterfactuals E(Y1) and E(Y0)) [@van2006; @van2011]
 $$\Psi\,=\,\text{E(Y|A=1,X)} - \text{E(Y|A=0,X)}$$
@@ -226,6 +226,75 @@ ifelse(
 )
 ```
 
+## Conditional Risk Ratio (CRR): multivariable case
+
+Let$'$s now compute the SE for the conditional multivariable RR derived from the predicted probabilities of a  multivariable logistic regression model. First we fit the model with the binary indicator of one-year mortality as dependent variable and patients$’$ age and comorbidities as independent variables. Then, from the fitted model and using the **predict** function we derive the probability of death from cancer patients aged 75 years and with comorbidities versus the probability of death for cancer patients aged 45 years old and without comorbidities, respectively. Finally, we compute the conditional RR (CRR) as the ratio between both probabilities. As we can see the risk of death in a population where cancer patients were aged 75 years with  comorbidities is approximately 29\% higher than the risk of one-year mortality in population of cancer patients all of them aged 45 years and without comorbidities:
+
+```{r}
+m2 <- glm(Y ~ age + cmbd, data = data, family = binomial)
+p75 <- predict(m2, newdata = data.frame(age = 75, cmbd = 1), type="response")
+p45 <- predict(m2, newdata = data.frame(age = 45, cmbd = 0), type="response")
+mrr <- p45 / p75;
+cat("Marginal Risk Ratio: ", mrr)
+```
+
+Let$'$s now to compute the SE for the CRR. Note that the relative risk transformation is a function of the regression coefficients. First, we should define the conditional probability in terms of the regression coefficients. In our model, given patients age and comorbidities, the probability of one-year mortality is:
+$$\text{P(Y=1|X)}\,=\,\frac{1}{1\,+\,\text{exp}(−\sum_{i=1}^k \beta(X))}$$
+Where k is the number of parameters in the model $\beta\,=\,(\beta_{0},\beta_{1},\beta_{2})$. Therefore,
+the probabality of one-year mortality for cancer patients aged 45 years without comorbidities is 
+$$\text{P(1)(Y = 1|X1 = 45, X2 = 0)}\,=\,\frac{1}{1\,+\,exp(−\beta_{0}\,-\,\beta_{1}\times 45\,-\,\beta_{2}\times0)},$$
+and the probabality of one-year mortality for cancer patients aged 75 years with comorbidities is 
+$$\text{P(2)(Y = 1|X1 = 75, X2 = 1)}\,=\,\frac{1}{1\,+\,exp(−\beta_{0}\,-\,\beta_{1}\times 75\,-\,\beta_{2}\times1)}.$$
+Note that the MRR is a function of the regression coefficients from the logistic model. Thus, now we use the equation in (3) to get: 
+$$\text{f(x)}\,=\,\frac{\frac{1}{1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4)}}{\frac{1}{1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x1\,-\,\beta_{2}x3)}},$$
+which simplifies to:
+$$\text{f(x)}\,=\,\frac{1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4)}{1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x1\,-\,\beta_{2}x3)}.$$
+We now need to solve a more complicate derivative (a partial derivative) for $f'$ but one can use the online open source available software "Wolfram alpha: https://www.wolframalpha.com/" to readily get the results for $f'$ and then apply the formula (3). Using the product and chain rules, we obtain the following partial derivatives:
+$$\frac{df}{d\beta_{0}}\,=\,\text{−exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4))\times \text{p}\,+\,(1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4))\times \text{p}(1\,–\,\text{p}),$$
+then,
+$$\frac{df}{d\beta_{1}}\,=\,\text{−exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4))\times x2 \times \text{p}\,+\,(1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4))\times x1 \times \text{p}(1\,–\,\text{p}),$$
+and, 
+$$\frac{df}{d\beta_{2}}\,=\,\text{−exp}(−\beta_{0}\,-\,\beta_{1}x2\,-\,\beta_{2} x4))\times x4 \times \text{p}\,+\,(1\,+\,\text{exp}(−\beta_{0}\,-\,\beta_{1}x3\,-\,\beta_{2} x4))\times x3 \times \text{p}(1\,–\,\text{p})$$
+where p is 
+$$\text{P(Y=1|X1,X2)}\,=\,\frac{1}{1\,+\text{exp}(−\beta_{0}\,-\,\beta_{1}x1\,-\,\beta_{2}x3)},$$
+i.e., the probability of one-year mortality for cancer patients aged 45 years without comorbidities. 
+
+Let’s calculate our partial derivative in R as follows:
+```{r}
+x1 <- 45
+x2 <- 75
+x3 <- 0
+x4 <- 1
+b0 <- coef(m2)[1]
+b1 <- coef(m2)[2]
+b2 <- coef(m2)[3]
+e1 <- exp(-b0 - 45*b1 - 0*b2)
+e2 <- exp(-b0 - 75*b1 - 1*b2)
+p1 <- 1 / (1 + e1)
+p2 <- 1 / (1 + e2)
+dfdb0 <- -e2*p1 + (1 + e2)*p1*(1 - p1)
+dfdb1 <- -x2*e2*p1 + (1 + e2)*x1*p1*(1 - p1)
+dfdb2 <- -x4*e2*p1 + (1 + e2)*x3*p1*(1 - p1)
+grad <- c(dfdb0, dfdb1, dfdb2)
+vG <- t(grad) %*% vcov(m2) %*% (grad)
+se_mrr <- c(sqrt(vG));se_mrr
+```
+
+Now, let$'$s again to check if our results are consistent with the implementation of the Delta Method function provide by the **sms** R package [@kavroudakis2015]. We obtain the same results for the SE of the mrr computed before (0.31377)
+
+```{r}
+se_mrr_delta <- deltamethod( ~(1 + exp(-x1 -75*x2 -1*x3)) / (1 + exp(-x1 -45*x2 -0*x4)), 
+             c(b0, b1, b2), 
+             vcov(m2)
+             ); se_mrr_delta
+```
+Finally, let$'$s compute the 95\% confidence intervals (CI):
+```{r}
+lb <- mrr - 1.96*sqrt(vG)
+ub <- mrr + 1.96*sqrt(vG)
+cat("\n Conditional Risk Rartio (95%CI): ") ; cat(mrr, "(", lb,",", ub,")")
+```
+
 # Session Info 
 ```{r session-info}
 devtools::session_info()
@@ -242,4 +311,3 @@ Luque-Fernandez MA, (2019). Delta Method Toturial: An Applied and Reproducible T
 **Twitter** `@WATZILEI`  
 
 # References 
-
