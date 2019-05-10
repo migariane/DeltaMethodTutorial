@@ -7,7 +7,7 @@ Daniel Redondo-Sanchez, Miguel Angel Luque-Fernandez (Senior Author)
 Corresponding author: miguel.luque.easp at juntadeandalucia.es  
 
 ## Abstract  
-This repository provides reproducible R-code to derive the 95% confidence intervals for the most common epidemiological measures of association using the classical Delta Method in an Rmarkdown document (https://github.com/migariane/DeltaMethodTutorial). We invite readers to fork and clone our repository and use it for taeching purposes (master students in epidemiology). Furthermore, readers can practice the use of GitHub as a collaborative tool for reproducible science.  
+This repository provides reproducible R-code to derive the 95% confidence intervals for the most common epidemiological measures of association using the classical Delta Method in an Rmarkdown document (http://migariane.github.io/DeltaMethodEpiTutorial.nb.html). We invite readers to fork and clone our repository and use it for taeching purposes (master students in epidemiology). Furthermore, readers can practice the use of GitHub as a collaborative tool for reproducible science.  
 
 **Keywords**:  
 Epidemiology, Computing, Delta Method, Reproducible Science  

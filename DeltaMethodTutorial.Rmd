@@ -36,7 +36,7 @@ options(scipen=999, digits=5, tinytex.verbose = TRUE)
 
 The delta method is really a theorem which states that a smooth function of an asymptotically normal estimator is also asymptotically normally distributed. It can also be viewed as a technique for approximating variance of a function of a nonlinear function of a random variable [@Armi2005]. 
 
-In epidemiology we use routinely the delta method to compute the standard error (SE) of the risk difference (RD), the risk ratio (RR), and the odds ratio (OR) [@Agresti2010]. Often in addition to reporting parameters fitted by a model, we need to report some marginal transformation of these parameters. The transformation can generate the point estimates of our desired values, but the SE of these point estimates are not so easily calculated. 
+In epidemiology we use routinely the delta method to compute the standard error (SE) of the risk difference (RD), the risk ratio (RR), and the odds ratio (OR) [@Agresti2010]. Often in addition to reporting parameters fitted by a model, we need to report some conditional transformation of these parameters. The transformation can generate the point estimates of our desired values, but the SE of these point estimates are not so easily calculated. 
 
 For instance, in causal inference we compute the average treatment effect (ATE), namely $\Psi$ as a function of two random variables (i.e., the potential outcomes or counterfactuals E(Y1) and E(Y0)) [@van2006; @van2011]
 $$\Psi\,=\,\text{E(Y|A=1,X)} - \text{E(Y|A=0,X)}$$
@@ -235,7 +235,7 @@ m2 <- glm(Y ~ age + cmbd, data = data, family = binomial)
 p75 <- predict(m2, newdata = data.frame(age = 75, cmbd = 1), type="response")
 p45 <- predict(m2, newdata = data.frame(age = 45, cmbd = 0), type="response")
 mrr <- p45 / p75;
-cat("Marginal Risk Ratio: ", mrr)
+cat("Conditional Risk Ratio: ", mrr)
 ```
 
 Let$'$s now to compute the SE for the CRR. Note that the relative risk transformation is a function of the regression coefficients. First, we should define the conditional probability in terms of the regression coefficients. In our model, given patients age and comorbidities, the probability of one-year mortality is:
@@ -292,7 +292,7 @@ Finally, let$'$s compute the 95\% confidence intervals (CI):
 ```{r}
 lb <- mrr - 1.96*sqrt(vG)
 ub <- mrr + 1.96*sqrt(vG)
-cat("\n Conditional Risk Rartio (95%CI): ") ; cat(mrr, "(", lb,",", ub,")")
+cat("\n Conditional Risk Ratio (95%CI): ") ; cat(mrr, "(", lb,",", ub,")")
 ```
 
 # Session Info 
