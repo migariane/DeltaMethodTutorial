@@ -1,7 +1,7 @@
 ---
 title: "Delta Method in Epidemiology: An Applied and Reproducible Tutorial."
 author: Miguel Angel Luque Fernandez, Michael Schomaker, Sho Komukai, Aurelien Belot, Daniel Redondo-Sanchez, Bernard Rachet, Mireille Schnitzer"
-date: "24/04/2020"
+date: "Updated: 24/04/2020"
 output:
   html_notebook:
     code_folding: show
@@ -27,6 +27,8 @@ bibliography: references/bibliography.bib
 ---
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+![DOI](https://zenodo.org/badge/185887587.svg)(https://zenodo.org/badge/latestdoi/185887587
 
 ```{r options, echo=FALSE, eval=FALSE}
 options(scipen=999, digits=5, tinytex.verbose = TRUE)
@@ -638,10 +640,12 @@ devtools::session_info()
 ```
 
 # Thank you  
-Thank you for participating in this tutorial.  
+Thank you for reading the tutorial.  
 
 You can cite this repository as:        
 Luque-Fernandez MA, (2020) et al. Delta Method in Epidemiology: An Applied and Reproducible Tutorial. GitHub repository, http://migariane.github.io/DeltaMethodEpi.nb.html  
+
+![DOI](https://zenodo.org/badge/185887587.svg)(https://zenodo.org/badge/latestdoi/185887587
 
 If you have updates or changes that you would like to make, please send <a href="https://github.com/migariane/DeltaMethodTutorial" target="_blank">me</a> a pull request. Alternatively, if you have any questions, please e-mail me.  
 

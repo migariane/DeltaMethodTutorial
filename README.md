@@ -1,5 +1,7 @@
 ## Title
-*Educational Note: Statistical Inference for Functionals in Epidemiology using the Delta Method and Influence Functions: An Applied and Reproducible Tutorial*     
+*Statistical Inference for Functionals in Epidemiology using the Delta Method and Influence Functions: An Applied and Reproducible Tutorial*     
+
+[![DOI](https://zenodo.org/badge/185887587.svg)](https://zenodo.org/badge/latestdoi/185887587)
 
 **Author**  
 Miguel Angel Luque-Fernandez   
