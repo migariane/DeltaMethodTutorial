@@ -1,0 +1,676 @@
+%% This BibTeX bibliography file was created using BibDesk.
+%% http://bibdesk.sourceforge.net/
+
+%% Created for MALF at 2020-04-17 13:50:35 +0200 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+
+@comment{jabref-meta: databaseType:biblatex;}
+
+
+
+@article{robins1994,
+	Abstract = {In applied problems it is common to specify a model for the conditional mean of a response given a set of regressors. A subset of the regressors may be missing for some study subjects either by design or happenstance. In this article we propose a new class of semiparametric estimators, based on inverse probability weighted estimating equations, that are consistent for parameter vector α0 of the conditional mean model when the data are missing at random in the sense of Rubin and the missingness probabilities are either known or can be parametrically modeled. We show that the asymptotic variance of the optimal estimator in our class attains the semiparametric variance bound for the model by first showing that our estimation problem is a special case of the general problem of parameter estimation in an arbitrary semiparametric model in which the data are missing at random and the probability of observing complete data is bounded away from 0, and then deriving a representation for the efficient score, the semiparametric variance bound, and the influence function of any regular, asymptotically linear estimator in this more general estimation problem. Because the optimal estimator depends on the unknown probability law generating the data, we propose locally and globally adaptive semiparametric efficient estimators. We compare estimators in our class with previously proposed estimators. We show that each previous estimator is asymptotically equivalent to some, usually inefficient, estimator in our class. This equivalence is a consequence of a proposition stating that every regular asymptotic linear estimator of α0 is asymptotically equivalent to some estimator in our class. We compare various estimators in a small simulation study and offer some practical recommendations.},
+	Author = {James M. Robins and Andrea Rotnitzky and Lue Ping Zhao},
+	Date-Added = {2020-04-17 13:50:04 +0200},
+	Date-Modified = {2020-04-17 13:50:17 +0200},
+	Issn = {01621459},
+	Journal = {Journal of the American Statistical Association},
+	Number = {427},
+	Pages = {846--866},
+	Publisher = {[American Statistical Association, Taylor & Francis, Ltd.]},
+	Title = {Estimation of Regression Coefficients When Some Regressors Are Not Always Observed},
+	Url = {http://www.jstor.org/stable/2290910},
+	Volume = {89},
+	Year = {1994},
+	Bdsk-Url-1 = {http://www.jstor.org/stable/2290910}}
+
+@article{Fredman2006,
+	Abstract = {The "Huber Sandwich Estimator" can be used to estimate the variance of the MLE when the underlying model is incorrect. If the model is nearly correct, so are the usual standard errors, and robustification is unlikely to help much. On the other hand, if the model is seriously in error, the sandwich may help on the variance side, but the parameters being estimated by the MLE are likely to be meaningless{\^a}€''except perhaps as descriptive statistics.},
+	Author = {David A. Freedman},
+	Issn = {00031305},
+	Journal = {The American Statistician},
+	Number = {4},
+	Pages = {299--302},
+	Publisher = {[American Statistical Association, Taylor & Francis, Ltd.]},
+	Title = {On the So-Called "Huber Sandwich Estimator" and "Robust Standard Errors"},
+	Url = {http://www.jstor.org/stable/27643806},
+	Volume = {60},
+	Year = {2006},
+	Bdsk-Url-1 = {http://www.jstor.org/stable/27643806}}
+
+@manual{R2020,
+	Address = {Vienna, Austria},
+	Author = {{R Core Team}},
+	Note = {{ISBN} 3-900051-07-0},
+	Organization = {R Foundation for Statistical Computing},
+	Title = {R: A Language and Environment for Statistical Computing},
+	Url = {http://www.R-project.org/},
+	Year = {2020},
+	Bdsk-Url-1 = {http://www.R-project.org/}}
+
+@article{Gutman2015,
+	Abstract = {Estimation of causal effects in non-randomized studies comprises two distinct phases: design, without outcome data, and analysis of the outcome data according to a specified protocol. Recently, Gutman and Rubin (2013) proposed a new analysis-phase method for estimating treatment effects when the outcome is binary and there is only one covariate, which viewed causal effect estimation explicitly as a missing data problem. Here, we extend this method to situations with continuous outcomes and multiple covariates and compare it with other commonly used methods (such as matching, subclassification, weighting, and covariance adjustment). We show, using an extensive simulation, that of all methods considered, and in many of the experimental conditions examined, our new 'multiple-imputation using two subclassification splines' method appears to be the most efficient and has coverage levels that are closest to nominal. In addition, it can estimate finite population average causal effects as well as non-linear causal estimands. This type of analysis also allows the identification of subgroups of units for which the effect appears to be especially beneficial or harmful.},
+	Author = {Gutman, Roee and Rubin, Donald B},
+	Date-Added = {2020-04-13 19:43:50 +0200},
+	Date-Modified = {2020-04-13 19:44:02 +0200},
+	Doi = {10.1002/sim.6532},
+	Journal = {Stat Med},
+	Journal-Full = {Statistics in medicine},
+	Keywords = {Rubin causal model; causal inference; multiple imputation; propensity score; spline; subgroup analysis},
+	Mesh = {Models, Statistical; Observational Studies as Topic; Randomized Controlled Trials as Topic; Research Design; Therapeutics; Treatment Outcome},
+	Month = {Nov},
+	Number = {26},
+	Pages = {3381-98},
+	Pmc = {PMC4782596},
+	Pmid = {26013308},
+	Pst = {ppublish},
+	Title = {Estimation of causal effects of binary treatments in unconfounded studies},
+	Volume = {34},
+	Year = {2015},
+	Bdsk-Url-1 = {https://doi.org/10.1002/sim.6532}}
+
+@article{Rubin2007,
+	Abstract = {For estimating causal effects of treatments, randomized experiments are generally considered the gold standard. Nevertheless, they are often infeasible to conduct for a variety of reasons, such as ethical concerns, excessive expense, or timeliness. Consequently, much of our knowledge of causal effects must come from non-randomized observational studies. This article will advocate the position that observational studies can and should be designed to approximate randomized experiments as closely as possible. In particular, observational studies should be designed using only background information to create subgroups of similar treated and control units, where 'similar' here refers to their distributions of background variables. Of great importance, this activity should be conducted without any access to any outcome data, thereby assuring the objectivity of the design. In many situations, this objective creation of subgroups of similar treated and control units, which are balanced with respect to covariates, can be accomplished using propensity score methods. The theoretical perspective underlying this position will be presented followed by a particular application in the context of the US tobacco litigation. This application uses propensity score methods to create subgroups of treated units (male current smokers) and control units (male never smokers) who are at least as similar with respect to their distributions of observed background characteristics as if they had been randomized. The collection of these subgroups then 'approximate' a randomized block experiment with respect to the observed covariates.},
+	Author = {Rubin, Donald B},
+	Date-Added = {2020-04-13 19:43:44 +0200},
+	Date-Modified = {2020-04-13 19:44:09 +0200},
+	Doi = {10.1002/sim.2739},
+	Journal = {Stat Med},
+	Journal-Full = {Statistics in medicine},
+	Mesh = {Biometry; Causality; Data Interpretation, Statistical; History, 20th Century; History, 21st Century; Humans; Jurisprudence; Male; Models, Statistical; Randomized Controlled Trials as Topic; Smoking; United States},
+	Month = {Jan},
+	Number = {1},
+	Pages = {20-36},
+	Pmid = {17072897},
+	Pst = {ppublish},
+	Title = {The design versus the analysis of observational studies for causal effects: parallels with the design of randomized trials},
+	Volume = {26},
+	Year = {2007},
+	Bdsk-Url-1 = {https://doi.org/10.1002/sim.2739}}
+
+@book{Boos2013,
+	Abstract = {"This book is for students and researchers who have had a first year graduate level mathematical statistics course. It covers classical likelihood, Bayesian, and permutation inference; an introduction to basic asymptotic distribution theory; and modern topics like M-estimation, the jackknife, and the bootstrap. R code is woven throughout the text, and there are a large number of examples and problems. An important goal has been to make the topics accessible to a wide audience, with little overt reliance on measure theory"},
+	Author = {Boos, Dennis D. and Stefanski, L. A},
+	Call-Number = {QA276},
+	Date-Added = {2020-04-13 18:56:15 +0200},
+	Date-Modified = {2020-04-13 18:57:16 +0200},
+	Dewey-Call-Number = {A519.5},
+	Genre = {Mathematical statistics},
+	Isbn = {9781461448174 (hdbk.)},
+	Library-Id = {2012949516},
+	Publisher = {Springer},
+	Series = {Springer texts in statistics},
+	Title = {Essential statistical inference: theory and methods},
+	Year = {2013}}
+
+@article{Dorie_2019,
+	Author = {Dorie, Vincent and Hill, Jennifer and Shalit, Uri and Scott, Marc and Cervone, Dan},
+	Date-Added = {2019-05-02 19:07:55 -0700},
+	Date-Modified = {2019-05-02 19:07:55 -0700},
+	Doi = {10.1214/18-sts688},
+	Issn = {0883-4237},
+	Journal = {Statistical Science},
+	Month = {Feb},
+	Number = {1},
+	Pages = {94--99},
+	Publisher = {Institute of Mathematical Statistics},
+	Title = {Rejoinder: Response to Discussions and a Look Ahead},
+	Url = {http://dx.doi.org/10.1214/18-STS688},
+	Volume = {34},
+	Year = {2019},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1214/18-STS688},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1214/18-sts688}}
+
+@article{boostrap2003,
+	Author = {Canty, Angelo},
+	Date-Added = {2019-05-02 18:58:52 -0700},
+	Date-Modified = {2019-05-02 18:59:20 -0700},
+	Journal = {R News},
+	Month = {01},
+	Pages = {2-7},
+	Title = {Resampling methods in R: The boot package},
+	Volume = {2},
+	Year = {2002}}
+
+@inproceedings{CantyResamplingMI,
+	Author = {Angelo J. Canty},
+	Date-Added = {2019-05-02 18:57:57 -0700},
+	Date-Modified = {2019-05-02 18:57:57 -0700},
+	Title = {Resampling Methods in R : The boot Package}}
+
+@article{kavroudakis2015,
+	Author = {Kavroudakis, Dimitris and others},
+	Date-Added = {2019-04-30 18:28:00 -0700},
+	Date-Modified = {2019-04-30 18:28:14 -0700},
+	Journal = {Journal of Statistical Software},
+	Number = {i02},
+	Publisher = {Foundation for Open Access Statistics},
+	Title = {Sms: An R package for the construction of microdata for geographical analysis},
+	Volume = {68},
+	Year = {2015}}
+
+@book{Rothman2008,
+	Address = {Philadelphia},
+	Annote = {LDR    04418cam  22005054a 4500
+001    14993679
+005    20090306202840.0
+008    070904s2008    pauab    b    001 0 eng  
+906    $a7$bcbc$corignew$d1$eecip$f20$gy-gencatlg
+925 0  $aacquire$b2 shelf copy$xpolicy default
+955    $djb01 2007-09-05$ejb01 2007-09-05 to Dewey$aaa27 2007-09-05$axe07 2009-02-26 2 copies rec'd., to CIP ver.$axh00 2009-03-04 to USPL/STM$fxh14 2009-03-06 Z-CipVer$gxh14 2009-03-06 copy 1-2 to BCCD
+010    $a  2007036316
+015    $aGBA784175$2bnb
+016 7  $a101315741$2DNLM
+016 7  $a014100824$2Uk
+020    $a9780781755641
+020    $a0781755646
+035    $a(OCoLC)169455558
+042    $apcc
+050 00 $aRA652.2.M3$bR67 2008
+060 00 $a2008 E-277
+060 10 $aWA 105$bR846m 2008
+082 00 $a614.4$222
+100 1  $aRothman, Kenneth J.
+245 10 $aModern epidemiology /$cKenneth J. Rothman, Sander Greenland, Timothy L. Lash.
+250    $a3rd ed., thoroughly rev. and updated.
+260    $aPhiladelphia :$bWolters Kluwer Health/Lippincott Williams & Wilkins,$cc2008.
+300    $ax, 758 p. :$bill., map ;$c27 cm.
+500    $a2nd ed. edited by Kenneth J. Rothman and Sander Greenland.
+504    $aIncludes bibliographical references (p. 683-732) and index.
+505 0  $aIntroduction / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Section I: Basic concepts -- Causation and causal inference / Kenneth J. Rothman ... [et al.] -- Measures of occurrence / Sander Greenland and Kenneth J. Rothman -- Measures of effect and measures of association / Sander Greenland, Kenneth J. Rothman, and Timothy L. Lash -- Concepts of interaction / Sander Greenland, Timothy L. Lash, and Kenneth J. Rothman --
+505 0  $aSection II: Study design and conduct -- Types of epidemiologic studies / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Cohort studies / Kenneth J. Rothman and Sander Greenland -- Case-control studies / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Validity in epidemiologic studies / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Precision and statistics in epidemiologic studies / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Design strategies to improve study accuracy / Kenneth J. Rothman, Sander Greenland, and Timothy L. Lash -- Causal diagrams / M. Maria Glymour and Sander Greenland --
+505 0  $aSection III: Data analysis -- Fundamentals of epidemiologic data analysis / Sander Greenland and Kenneth J. Rothman -- Introduction to categorical statistics / Sander Greenland and Kenneth J. Rothman -- Introduction to stratified analysis / Sander Greenland and Kenneth J. Rothman -- Applications of stratified analysis methods / Sander Greenland -- Analysis of polytomous exposures and outcomes / Sander Greenland -- Introduction to bayesian statistics / Sander Greenland -- Bias analysis / Sander Greenland and Timothy L. Lash -- Introduction to regression models / Sander Greenland -- Introduction to regression modeling / Sander Greenland --
+505 0  $aSection IV: Special topics -- Surveillance / James W. Buehler -- Using secondary data / J{\o}rn Olsen -- Field methods in epidemiology / Patricia Hartge and Jack Cahill -- Ecologic studies / Hal Morgenstern -- Social epidemiology / Jay S. Kaufman -- Infectious disease epidemiology / C. Robert Horsburgh, Jr., and Barbara E. Mahon -- Genetic and molecular epidemiology / Muin J. Khoury, Robert Millikan, and Marta Gwinn -- Nutritional epidemiology / Walter C. Willett -- Environmental epidemiology / Irva Hertz-Picciotto -- Methodologic issues in reproductive epidemiology / Clarice R. Weinberg and Allen J. Wilcox -- Clinical epidemiology / Noel S. Weiss -- Meta-analysis / Sander Greenland and Keith O'Rourke.
+650  0 $aEpidemiology$xStatistical methods.
+650  0 $aEpidemiology$xResearch$xMethodology.
+650 12 $aEpidemiology.
+650 22 $aEpidemiologic Methods.
+700 1  $aGreenland, Sander,$d1951-
+700 1  $aLash, Timothy L.
+856 42 $3Publisher description$uhttp://www.loc.gov/catdir/enhancements/fy0743/2007036316-d.html
+856 41 $3Table of contents only$uhttp://www.loc.gov/catdir/enhancements/fy0828/2007036316-t.html
+035    $a(OCoLC)ocn169455558
+040    $aDNLM/DLC$cDLC$dNLM$dBAKER$dUKM$dC#P$dYDXCP$dBWX$dCOU$dMUQ$dBTCTA$dDLC
+952    $aTo LC: Prev. ed. LCCN 9723369
+},
+	Author = {Rothman, Kenneth J and Greenland, Sander and Lash, Timothy L},
+	Call-Number = {RA652.2.M3},
+	Date-Added = {2019-04-30 17:57:44 -0700},
+	Date-Modified = {2019-04-30 17:57:56 -0700},
+	Dewey-Call-Number = {614.4},
+	Edition = {3rd ed., thoroughly rev. and updated},
+	Genre = {Epidemiology},
+	Isbn = {9780781755641},
+	Library-Id = {2007036316},
+	Publisher = {Wolters Kluwer Health/Lippincott Williams & Wilkins},
+	Title = {Modern epidemiology},
+	Url = {http://www.loc.gov/catdir/enhancements/fy0743/2007036316-d.html},
+	Year = {2008},
+	Bdsk-Url-1 = {http://www.loc.gov/catdir/enhancements/fy0743/2007036316-d.html}}
+
+@online{ucla,
+	Author = {Bruin, J.},
+	Date-Added = {2019-04-30 17:47:28 -0700},
+	Date-Modified = {2019-04-30 17:47:43 -0700},
+	Month = FEB,
+	Title = {newtest: command to compute new test {@ONLINE}},
+	Url = {http://www.ats.ucla.edu/stat/stata/ado/analysis/},
+	Year = {2011},
+	Bdsk-Url-1 = {http://www.ats.ucla.edu/stat/stata/ado/analysis/}}
+
+@book{Herberg1962,
+	Address = {Boston},
+	Annote = {LDR    00693cam  2200217u  4500
+001    7501732
+005    20070605181558.0
+008    820522s1962    maua          000 0 eng  
+906    $a0$bcbc$cpremunv$du$encip$f19$gy-gencatlg
+035    $9(DLC)   62008029
+010    $a   62008029 
+040    $aDLC$cCarP$dDLC
+050 00 $aQA39$b.H44 1962
+100 1  $aHerberg, Theodore,$d1904- [from old catalog]
+245 00 $aElementary mathematical analysis
+260    $aBoston,$bHeath$c[c1962]
+300    $a414 p.$billus.$c24 cm.
+650  0 $aMathematics.
+700 1  $aBristol, James D., [from old catalog]$ejoint author.
+740    $aMathematical analysis.
+991    $bc-GenColl$hQA39$i.H44 1962$tCopy 1$wPREM
+},
+	Author = {Herberg, Theodore and Bristol, James D.},
+	Call-Number = {QA39},
+	Date-Added = {2019-04-30 17:44:22 -0700},
+	Date-Modified = {2019-04-30 17:46:49 -0700},
+	Genre = {Mathematics},
+	Library-Id = {62008029},
+	Publisher = {Heath},
+	Title = {Elementary mathematical analysis},
+	Year = {1962}}
+
+@book{Efron1993,
+	Address = {New York},
+	Annote = {LDR    01120pam  2200277 a 4500
+001    2049363
+005    20070713181031.0
+008    930426s1993    nyua     b    001 0 eng  
+906    $a7$bcbc$corignew$d1$eocip$f19$gy-gencatlg
+955    $apc03 to sa00 04-26-93; jd07 04-25-93; jd99 04-28-93; jd27 04-29-93;aa05 04-29-93; CIP ver. pv07 01-03-96
+035    $9(DLC)   93004489
+010    $a   93004489 
+020    $a0412042312
+040    $aDLC$cDLC$dDLC
+050 00 $aQA276.8$b.E3745 1993
+082 00 $a519.5/44$220
+100 1  $aEfron, Bradley.
+245 13 $aAn introduction to the bootstrap /$cBradley Efron and Robert J. Tibshirani.
+260    $aNew York :$bChapman & Hall,$cc1993.
+300    $axvi, 436 p. :$bill. ;$c23 cm.
+440  0 $aMonographs on statistics and applied probability ;$v57
+504    $aIncludes bibliographical references (p. [413]-425) and indexes.
+650  0 $aBootstrap (Statistics)
+700 1  $aTibshirani, Robert.
+856 42 $3Publisher description$uhttp://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html
+991    $bc-GenColl$hQA276.8$i.E3745 1993$p00035197606$tCopy 1$v57$wBOOKS
+},
+	Author = {Efron, Bradley and Tibshirani, Robert},
+	Call-Number = {QA276.8},
+	Date-Added = {2019-04-30 17:38:54 -0700},
+	Date-Modified = {2019-04-30 17:39:06 -0700},
+	Dewey-Call-Number = {519.5/44},
+	Genre = {Bootstrap (Statistics)},
+	Isbn = {0412042312},
+	Library-Id = {93004489},
+	Publisher = {Chapman & Hall},
+	Title = {An introduction to the bootstrap},
+	Url = {http://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html},
+	Volume = {57},
+	Year = {1993},
+	Bdsk-Url-1 = {http://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html}}
+
+@article{kennedy2017,
+	Author = {Kennedy, Edward H and Ma, Zongming and McHugh, Matthew D and Small, Dylan S},
+	Date-Added = {2019-04-30 17:37:25 -0700},
+	Date-Modified = {2019-04-30 17:37:36 -0700},
+	Journal = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+	Number = {4},
+	Pages = {1229--1245},
+	Publisher = {Wiley Online Library},
+	Title = {Non-parametric methods for doubly robust estimation of continuous treatment effects},
+	Volume = {79},
+	Year = {2017}}
+
+@incollection{kennedy2016,
+	Author = {Kennedy, Edward H},
+	Booktitle = {Statistical Causal Inferences and Their Applications in Public Health Research},
+	Date-Added = {2019-04-30 17:36:07 -0700},
+	Date-Modified = {2019-04-30 17:37:25 -0700},
+	Pages = {141--167},
+	Publisher = {Springer},
+	Title = {Semiparametric theory and empirical processes in causal inference},
+	Year = {2016}}
+
+@book{Laan:2011aa,
+	Address = {New York},
+	Annote = {LDR    01387cam  22003497a 4500
+001    16801910
+005    20190424124718.0
+008    110531s2011    nyua     b    001 0 eng d
+906    $a7$bcbc$ccopycat$d2$encip$f20$gy-gencatlg
+925 0  $aacquire$b1 shelf copy$xpolicy default
+925 1  $aacquire$b2 shelf copies$xpolicy default
+955    $bxh58 2012-01-03 z-processor$ixh58 2012-01-11 ; to Dewey 2011-01-11$trc11 2012-03-29 copy 2 added$axh14 2013-04-02 discard copy 3
+955    $apc17 2011-05-31$axh00 2011-12-22 to USPL/STM
+010    $a  2011930854
+020    $a9781441997814 (alk. paper)
+020    $a1441997814 (alk. paper)
+020    $a9781441997821 (e-ISBN)
+035    $a(OCoLC)ocn731921833
+040    $aBTCTA$beng$cBTCTA$dOHX$dYDXCP$dBWX$dCDX$dIXA$dUMR$dDLC
+042    $alccopycat
+050 00 $aQA276$b.L22 2011
+082 04 $a519.5$223
+100 1  $aLaan, M. J. van der.
+245 10 $aTargeted learning :$bcausal inference for observational and experimental data /$cMark J. Van der Laan ; Sherri Rose.
+260    $aNew York :$bSpringer,$cc2011.
+300    $alxxi, 626 p. :$bill. ;$c25 cm.
+490 1  $aSpringer series in statistics,$x0172-7397
+504    $aIncludes bibliographical references (p. 589-611) and index.
+650  0 $aMathematical statistics.
+650  0 $aInference.
+700 1  $aRose, Sherri.
+830  0 $aSpringer series in statistics.
+},
+	Author = {Laan, M. J. van der and Rose, Sherri},
+	Call-Number = {QA276},
+	Date-Added = {2019-04-30 17:33:47 -0700},
+	Date-Modified = {2019-04-30 17:33:47 -0700},
+	Dewey-Call-Number = {519.5},
+	Genre = {Mathematical statistics},
+	Isbn = {9781441997814 (alk. paper)},
+	Library-Id = {2011930854},
+	Publisher = {Springer},
+	Series = {Springer series in statistics},
+	Title = {Targeted learning: causal inference for observational and experimental data},
+	Year = {2011}}
+
+@book{Agresti2010,
+	Address = {Hoboken, N.J.},
+	Annote = {LDR    01695cam  2200325 a 4500
+001    15929333
+005    20110506180303.0
+008    091001s2010    njua     b    001 0 eng  
+906    $a7$bcbc$corignew$d1$eecip$f20$gy-gencatlg
+925 0  $aacquire$b2 shelf copies$xpolicy default$eclaim1  2010-09-10$eclaim2  2011-01-19
+955    $bxh00 2009-10-01$ixh07 2009-10-01 to Dewey$wrd13 2009-10-01$axe10 2011-02-08 1 copy rec'd., to CIP ver.$frc02 2011-02-23 CIP VER to BCCD$tfc03 2011-05-06 copy 2 added
+010    $a  2009038760
+015    $aGBB004159$2bnb
+016 7  $a015461979$2Uk
+020    $a9780470082898 (cloth)
+020    $a0470082895 (cloth)
+035    $a(OCoLC)ocn445480016
+040    $aDLC$cDLC$dYDXCP$dCDX$dC#P$dBWX$dUKM$dI8H$dDLC
+050 00 $aQA278$b.A35 2010
+082 00 $a519.5/35$222
+100 1  $aAgresti, Alan.
+245 10 $aAnalysis of ordinal categorical data /$cAlan Agresti.
+250    $a2nd ed.
+260    $aHoboken, N.J. :$bWiley,$cc2010.
+300    $axi, 396 p. :$bill. ;$c25 cm.
+490 1  $aWiley series in probability and statistics
+504    $aIncludes bibliographical references and indexes.
+505 0  $aBasic Results for Cross-Classification Tables. Associations in Multidimensional Tables. Data Analysis Using Loglinear Models. Loglinear Models for Ordinal Variables. Logit Models. Logit Models for an Ordinal Response. Other Models for Ordinal Variables. Measures of Association for Ordinal Variables. Inference for Ordinal Measures of Association. Square Tables with Ordered Categories. Comparison of Ordinal Methods. Appendixes. Bibliography. Index.
+650  0 $aMultivariate analysis.
+830  0 $aWiley series in probability and statistics.
+},
+	Author = {Agresti, Alan},
+	Call-Number = {QA278},
+	Date-Added = {2019-04-30 17:32:20 -0700},
+	Date-Modified = {2019-04-30 17:33:47 -0700},
+	Dewey-Call-Number = {519.5/35},
+	Edition = {2nd ed},
+	Genre = {Multivariate analysis},
+	Isbn = {9780470082898 (cloth)},
+	Library-Id = {2009038760},
+	Publisher = {Wiley},
+	Series = {Wiley series in probability and statistics},
+	Title = {Analysis of ordinal categorical data},
+	Year = {2010}}
+
+@book{Armi2005,
+	Address = {Chichester, West Sussex, England},
+	Annote = {LDR    01799cam  22003854a 4500
+001    13801396
+005    20080411135149.0
+008    041129s2005    enka     be   001 0 eng  
+906    $a7$bcbc$corignew$d1$eecip$f20$gy-gencatlg
+925 0  $aacquire$b2 shelf copies$xpolicy default
+955    $ajc14 2004-11-29$ijc14 2004-11-29$ejc03 2004-12-01 to Dewey$aaa27 2004-12-02; ASSIGN TO SCIENCE READING ROOM ;$auf12 2006-03-29$auf15 2007-11-21 one copy (vols 1-8) to CIP; 2007-12-03 to CIP ver.$fjx12 2008-01-28 Z-CipVer$gjx12 2008-01-28 to BCCD
+010    $a  2004028292
+020    $a047084907X (set : cloth)
+020    $a9780470849071 (set : cloth)
+035    $a(OCoLC)ocm57168526
+035    $a(OCoLC)57168526
+040    $aDLC$cDLC$dYDX$dCOO$dBAKER$dBTCTA$dYDXCP$dU3Q$dUQ1$dDLC
+042    $apcc
+050 00 $aRA409$b.E53 2005
+082 00 $a610/.2/1$222
+245 00 $aEncyclopedia of biostatistics /$ceditors-in-chief, Peter Armitage, Theodore Colton.
+250    $a2nd ed.
+260    $aChichester, West Sussex, England ;$aHoboken, NJ :$bJohn Wiley,$cc2005.
+300    $a8 v. (lxxxiv, 6022) :$bill. ;$c26 cm.
+504    $aIncludes bibliographical references and indexes.
+505 0  $a1. A-Chap -- 2. Char-Dos -- 3. Dou-Gre -- 4. Gro-Mar -- 5. Mas-Nui -- 6. Nul-Ran -- 7. Rao-Str -- 8. Stu-Z. Index.
+650  0 $aMedical statistics$vEncyclopedias.
+650  0 $aBiometry$vEncyclopedias.
+655  7 $aEncyclop{\'e}die (Descripteur de forme)$2rasuqam
+700 1  $aArmitage, P.
+700 1  $aColton, Theodore.
+856 41 $3Table of contents$uhttp://www.loc.gov/catdir/toc/ecip054/2004028292.html
+856 42 $3Publisher description$uhttp://www.loc.gov/catdir/enhancements/fy0617/2004028292-d.html
+952    $aComplete in 8 v.
+991    $br-SciRR$hRA409$i.E53 2005$tCopy 1$wGenBib
+},
+	Author = {Armitage, P and Colton, Theodore},
+	Call-Number = {RA409},
+	Date-Added = {2019-04-30 17:30:23 -0700},
+	Date-Modified = {2019-04-30 17:30:56 -0700},
+	Dewey-Call-Number = {610/.2/1},
+	Edition = {2nd ed},
+	Genre = {Medical statistics},
+	Isbn = {047084907X (set : cloth)},
+	Library-Id = {2004028292},
+	Publisher = {John Wiley},
+	Title = {Encyclopedia of biostatistics},
+	Url = {http://www.loc.gov/catdir/toc/ecip054/2004028292.html},
+	Year = {2005},
+	Bdsk-Url-1 = {http://www.loc.gov/catdir/toc/ecip054/2004028292.html}}
+
+@article{Ver_Hoef_2012,
+	Author = {Ver Hoef, Jay M.},
+	Date-Added = {2019-04-30 17:18:16 -0700},
+	Date-Modified = {2019-04-30 17:18:16 -0700},
+	Doi = {10.1080/00031305.2012.687494},
+	Issn = {1537-2731},
+	Journal = {The American Statistician},
+	Month = {May},
+	Number = {2},
+	Pages = {124--127},
+	Publisher = {Informa UK Limited},
+	Title = {Who Invented the Delta Method?},
+	Url = {http://dx.doi.org/10.1080/00031305.2012.687494},
+	Volume = {66},
+	Year = {2012},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1080/00031305.2012.687494}}
+
+@article{fisher2018,
+	Author = {Fisher, Aaron and Kennedy, Edward H},
+	Date-Added = {2019-04-28 16:08:13 -0700},
+	Date-Modified = {2019-04-28 16:10:23 -0700},
+	Journal = {arXiv preprint arXiv:1810.03260},
+	Title = {Visually communicating and teaching intuition for influence functions},
+	Year = {2018}}
+
+@article{Rubin2005,
+	Abstract = { Causal effects are defined as comparisons of potential outcomes under different treatments on a common set of units. Observed values of the potential outcomes are revealed by the assignment mechanism---a probabilistic model for the treatment each unit receives as a function of covariates and potential outcomes. Fisher made tremendous contributions to causal inference through his work on the design of randomized experiments, but the potential outcomes perspective applies to other complex experiments and nonrandomized studies as well. As noted by Kempthorne in his 1976 discussion of Savage's Fisher lecture, Fisher never bridged his work on experimental design and his work on parametric modeling, a bridge that appears nearly automatic with an appropriate view of the potential outcomes framework, where the potential outcomes and covariates are given a Bayesian distribution to complete the model specification. Also, this framework crisply separates scientific inference for causal effects and decisions based on such inference, a distinction evident in Fisher's discussion of tests of significance versus tests in an accept/reject framework. But Fisher never used the potential outcomes framework, originally proposed by Neyman in the context of randomized experiments, and as a result he provided generally flawed advice concerning the use of the analysis of covariance to adjust for posttreatment concomitants in randomized trials. },
+	Author = {Donald B Rubin},
+	Date-Added = {2016-11-05 10:46:26 +0000},
+	Date-Modified = {2016-11-05 11:57:31 +0000},
+	Doi = {10.1198/016214504000001880},
+	Eprint = {http://dx.doi.org/10.1198/016214504000001880},
+	Journal = {Journal of the American Statistical Association},
+	Number = {469},
+	Pages = {322-331},
+	Title = {Causal Inference Using Potential Outcomes},
+	Url = {http://dx.doi.org/10.1198/016214504000001880},
+	Volume = {100},
+	Year = {2005},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1198/016214504000001880}}
+
+@article{van2006,
+	Author = {van der Laan, Mark J and Rubin, Daniel},
+	Date-Added = {2016-11-04 23:41:05 +0000},
+	Date-Modified = {2016-11-04 23:41:16 +0000},
+	Journal = {The International Journal of Biostatistics},
+	Number = {1},
+	Title = {Targeted maximum likelihood learning},
+	Volume = {2},
+	Year = {2006}}
+
+@article{lunceford2004,
+	Author = {Lunceford, Jared K. and Davidian, Marie},
+	Date-Added = {2016-11-04 23:09:47 +0000},
+	Date-Modified = {2016-11-04 23:14:37 +0000},
+	Doi = {10.1002/sim.1903},
+	Issn = {1097-0258},
+	Journal = {Statistics in Medicine},
+	Number = {19},
+	Pages = {2937--2960},
+	Publisher = {John Wiley &amp; Sons, Ltd.},
+	Title = {Stratification and weighting via the propensity score in estimation of causal treatment effects: a comparative study},
+	Url = {http://dx.doi.org/10.1002/sim.1903},
+	Volume = {23},
+	Year = {2004},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1002/sim.1903}}
+
+@article{rosenbaum1983,
+	Author = {Rosenbaum, Paul R and Rubin, Donald B},
+	Date-Added = {2016-11-04 23:06:43 +0000},
+	Date-Modified = {2016-11-04 23:06:53 +0000},
+	Journal = {Biometrika},
+	Number = {1},
+	Pages = {41--55},
+	Publisher = {Biometrika Trust},
+	Title = {The central role of the propensity score in observational studies for causal effects},
+	Volume = {70},
+	Year = {1983}}
+
+@article{efron1983,
+	Author = {Efron, Bradley and Gong, Gail},
+	Date-Added = {2016-11-01 15:20:51 +0000},
+	Date-Modified = {2016-11-01 15:21:02 +0000},
+	Journal = {The American Statistician},
+	Number = {1},
+	Pages = {36--48},
+	Publisher = {Taylor \&amp; Francis},
+	Title = {A leisurely look at the bootstrap, the jackknife, and cross-validation},
+	Volume = {37},
+	Year = {1983}}
+
+@book{efron1982,
+	Author = {Efron, Bradley and Efron, B},
+	Date-Added = {2016-11-01 12:23:55 +0000},
+	Date-Modified = {2016-11-01 12:24:06 +0000},
+	Publisher = {SIAM},
+	Title = {The jackknife, the bootstrap and other resampling plans},
+	Volume = {38},
+	Year = {1982}}
+
+@article{breiman1996,
+	Author = {Breiman, Leo},
+	Date-Added = {2016-11-01 11:07:48 +0000},
+	Date-Modified = {2016-11-01 11:07:59 +0000},
+	Journal = {Machine learning},
+	Number = {1},
+	Pages = {49--64},
+	Publisher = {Springer},
+	Title = {Stacked regressions},
+	Volume = {24},
+	Year = {1996}}
+
+@article{van2007,
+	Author = {Van der Laan, Mark J and Polley, Eric C and Hubbard, Alan E},
+	Date-Added = {2016-10-31 17:22:47 +0000},
+	Date-Modified = {2016-10-31 17:22:56 +0000},
+	Journal = {Statistical applications in genetics and molecular biology},
+	Number = {1},
+	Title = {Super learner},
+	Volume = {6},
+	Year = {2007}}
+
+@article{rubin1974,
+	Author = {Rubin, Donald B},
+	Date-Added = {2016-10-31 15:24:42 +0000},
+	Date-Modified = {2016-10-31 15:24:49 +0000},
+	Journal = {Journal of educational Psychology},
+	Number = {5},
+	Pages = {688},
+	Publisher = {American Psychological Association},
+	Title = {Estimating causal effects of treatments in randomized and nonrandomized studies.},
+	Volume = {66},
+	Year = {1974}}
+
+@article{hampel1974,
+	Author = {Hampel, Frank R},
+	Date-Added = {2016-10-24 14:12:13 +0000},
+	Date-Modified = {2016-10-24 14:12:28 +0000},
+	Journal = {Journal of the American Statistical Association},
+	Number = {346},
+	Pages = {383--393},
+	Publisher = {Taylor \&amp; Francis},
+	Title = {The influence curve and its role in robust estimation},
+	Volume = {69},
+	Year = {1974}}
+
+@article{neu2005,
+	Author = {Neugebauer, Romain and van der Laan, Mark},
+	Date-Added = {2016-10-20 09:49:31 +0000},
+	Date-Modified = {2016-10-20 09:50:01 +0000},
+	Journal = {Journal of Statistical Planning and Inference},
+	Number = {1},
+	Pages = {405--426},
+	Publisher = {Elsevier},
+	Title = {Why prefer double robust estimators in causal inference?},
+	Volume = {129},
+	Year = {2005}}
+
+@article{robins2000,
+	Author = {Robins, James M and Hernan, Miguel Angel and Brumback, Babette},
+	Date-Added = {2016-10-20 09:42:19 +0000},
+	Date-Modified = {2016-10-20 09:42:33 +0000},
+	Journal = {Epidemiology},
+	Pages = {550--560},
+	Publisher = {JSTOR},
+	Title = {Marginal structural models and causal inference in epidemiology},
+	Year = {2000}}
+
+@article{bang2005,
+	Author = {Bang, Heejung and Robins, James M},
+	Date-Added = {2016-10-20 09:41:18 +0000},
+	Date-Modified = {2016-10-20 09:42:41 +0000},
+	Journal = {Biometrics},
+	Number = {4},
+	Pages = {962--973},
+	Publisher = {Wiley Online Library},
+	Title = {Doubly robust estimation in missing data and causal inference models},
+	Volume = {61},
+	Year = {2005}}
+
+@article{rubin2011,
+	Author = {Rubin, Donald B},
+	Date-Added = {2016-10-20 09:28:13 +0000},
+	Date-Modified = {2016-10-20 09:28:32 +0000},
+	Journal = {Journal of the American Statistical Association},
+	Publisher = {Taylor \&amp; Francis},
+	Title = {Causal inference using potential outcomes},
+	Year = {2011}}
+
+@article{robins1986,
+	Author = {Greenland, Sander and Robins, James M},
+	Date-Added = {2016-10-19 15:38:47 +0000},
+	Date-Modified = {2016-10-19 15:39:03 +0000},
+	Journal = {International journal of epidemiology},
+	Number = {3},
+	Pages = {413--419},
+	Publisher = {IEA},
+	Title = {Identifiability, exchangeability, and epidemiological confounding},
+	Volume = {15},
+	Year = {1986}}
+
+@book{buh2016,
+	Author = {B{\"u}hlmann, Peter and Drineas, Petros and van der Laan, Mark and Kane, Michael},
+	Date-Added = {2016-10-19 15:10:01 +0000},
+	Date-Modified = {2016-10-19 15:10:27 +0000},
+	Publisher = {CRC Press},
+	Title = {Handbook of big data},
+	Year = {2016}}
+
+@book{van2011,
+	Author = {van der Laan, Mark and Rose, Sherri},
+	Date-Added = {2016-10-19 12:25:52 +0000},
+	Date-Modified = {2016-10-19 14:38:16 +0000},
+	Publisher = {Springer Series in Statistics},
+	Title = {Targeted learning: causal inference for observational and experimental data},
+	Year = {2011}}
+
+@article{gruber2011,
+	Author = {Susan Gruber and Mark van der Laan},
+	Date-Added = {2016-10-19 12:23:25 +0000},
+	Date-Modified = {2016-10-19 14:38:33 +0000},
+	Journal = {U.C. Berkeley Division of Biostatistics Working Paper Series},
+	Title = {tmle: An R Package for Targeted Maximum Likelihood Estimation},
+	Year = {2011},
+	Bdsk-Url-1 = {http://biostats.bepress.com/ucbbiostat/paper275}}
