@@ -1,7 +1,10 @@
 ---
 title: "Delta Method in Epidemiology: An Applied and Reproducible Tutorial."
-author: Miguel Angel Luque Fernandez, Michael Schomaker, Sho Komukai, Aurelien Belot, Daniel Redondo-Sanchez, Bernard Rachet, Mireille Schnitzer"
+author: Miguel Angel Luque Fernandez
 date: "Updated: 24/04/2020"
+title: "The Delta Method in Epidemiology: An Applied and Reproducible Tutorial"
+author: "Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D"
+date: "10/5/2019 \n https://scholar.harvard.edu/malf/home"
 output:
   html_notebook:
     code_folding: show

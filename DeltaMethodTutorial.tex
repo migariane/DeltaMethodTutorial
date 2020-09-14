@@ -1,34 +1,47 @@
-\documentclass[]{article}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Statistical Inference for Functionals in Epidemiology using the Delta Method and Influence Functions: An Applied and Reproducible Tutorial},
+  pdfauthor={Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Statistical Inference for Functionals in Epidemiology using the Delta Method and Influence Functions: An Applied and Reproducible Tutorial},
-            pdfauthor={Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -70,6 +83,14 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -79,53 +100,19 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Statistical Inference for Functionals in Epidemiology using the Delta
+\title{Statistical Inference for Functionals in Epidemiology using the Delta
 Method and Influence Functions: An Applied and Reproducible Tutorial}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{02/03/2020 \url{https://scholar.harvard.edu/malf/home}}
-
+\author{Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D}
+\date{02/03/2020 \url{https://scholar.harvard.edu/malf/home}}
 
 \begin{document}
 \maketitle
@@ -320,8 +307,8 @@ mean}\label{delta-method-for-the-a-simple-sample-mean}}
 ##    parameter name
 ##  (Intercept)   b0
 ## 
-##    Estimate          SE    2.5 %   97.5 %
-## b0 0.508518 0.009161893 0.490561 0.526475
+##     Estimate        SE     2.5 % 97.5 %
+## b0 0.5085180 0.0091619 0.4905610 0.5265
 \end{verbatim}
 
 \hypertarget{delta-method-for-the-most-commun-epidemiological-estimands-risk-differeces-relative-risk-and-odds-ratio}{%
@@ -431,18 +418,18 @@ the presence of comorbidities using a binomial distribution. The data
 generation and models specifications are provide here below:
 
 \begin{verbatim}
-## -- Attaching packages ------------------------------------------------------ tidyverse 1.2.1 --
+## -- Attaching packages ----------------------------------------- tidyverse 1.3.0 --
 \end{verbatim}
 
 \begin{verbatim}
-## v ggplot2 3.1.1     v purrr   0.3.3
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   0.8.3     v stringr 1.4.0
+## v ggplot2 3.2.1     v purrr   0.3.3
+## v tibble  2.1.3     v dplyr   0.8.4
+## v tidyr   1.0.2     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.4.0
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts --------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts -------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ## x dplyr::recode() masks car::recode()
@@ -860,30 +847,84 @@ Finally, let\('\)s compute the 95\% confidence intervals (CI):
 based on the AIPTW
 estimator}\label{marginal-causal-risk-ratio-for-the-potential-outcomes-and-based-on-the-aiptw-estimator}}
 
-Imagine now, that we want to emulate an impossible clinical trial where
-we would like to estimate the overall marginal one-year risk of death,
-standardized across all the levels of patients age. We are going to
-contrast one-year mortality risk for a population where all patients
-have comorbidities versus another population where patients do not have
-comorbidities. When estimating the marginal causal risk ratio (MCRR) for
-a binary treatment (or exposure), methods that incorporate propensity
-scores, the G-computation, or a combination of both, namely
-double-robust methods, are preferred over naïve regression approaches
-which are biased under misspecification of a parametric outcome model.
-The Augmented Inverse Probability of Treatment Weighting
-(\textbf{AIPTW}) estimation is a double-robust two-step procedure with
-two equations (propensity score and mean outcome equations).
-Double-robust methods stem from based on semi-parametric theory (i.e.,
-estimation equations) and only require the correct specification of one
-model. Here below we provide the formula to compute the MCRR:
+Imagine now, that we want to emulate a clinical trial where we would
+like to estimate the effect of cancer treatment on the overall average
+population marginal one-year risk of death, standardized across all the
+levels of patients age, TNM cancer stage, and gender. In R we create a
+function to generate the simulated data replicating the DAG from Figure
+1:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Y: mortality binary indicator (1 death, 0 alive)
+\item
+  A: binary treatment (1 Chemotherapy, 0 Radiotherapy )\\
+\item
+  W1: Gender (1 male; 0 female)\\
+\item
+  W2: Age at diagnosis (0 \textless65; 1 \textgreater=65)\\
+\item
+  W3: Cancer TNM classification (scale from 1 to 4; 1: early stage no
+  metastasis; 4: advanced stage with metastasis)\\
+\item
+  W4: Comorbidities (scale from 1 to 5)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{digits=}\DecValTok{4}\NormalTok{)}
+\NormalTok{generateData <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n)\{}
+\NormalTok{  w1 <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(n, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.5}\NormalTok{)}
+\NormalTok{  w2 <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(n, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.65}\NormalTok{)}
+\NormalTok{  w3 <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{runif}\NormalTok{(n, }\DataTypeTok{min=}\DecValTok{0}\NormalTok{, }\DataTypeTok{max=}\DecValTok{4}\NormalTok{), }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\NormalTok{  w4 <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{runif}\NormalTok{(n, }\DataTypeTok{min=}\DecValTok{0}\NormalTok{, }\DataTypeTok{max=}\DecValTok{5}\NormalTok{), }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\NormalTok{  A  <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(n, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{prob=} \KeywordTok{plogis}\NormalTok{(}\OperatorTok{-}\FloatTok{0.4} \OperatorTok{+}\StringTok{ }\FloatTok{0.2}\OperatorTok{*}\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\FloatTok{0.15}\OperatorTok{*}\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\FloatTok{0.2}\OperatorTok{*}\NormalTok{w4 }\OperatorTok{+}\StringTok{ }\FloatTok{0.15}\OperatorTok{*}\NormalTok{w2}\OperatorTok{*}\NormalTok{w4))}
+  \CommentTok{# counterfactual}
+\NormalTok{  Y}\FloatTok{.1}\NormalTok{ <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(n, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{prob=} \KeywordTok{plogis}\NormalTok{(}\OperatorTok{-}\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{1} \FloatTok{-0.1}\OperatorTok{*}\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\FloatTok{0.3}\OperatorTok{*}\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\FloatTok{0.25}\OperatorTok{*}\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\FloatTok{0.2}\OperatorTok{*}\NormalTok{w4 }\OperatorTok{+}\StringTok{ }\FloatTok{0.15}\OperatorTok{*}\NormalTok{w2}\OperatorTok{*}\NormalTok{w4))}
+\NormalTok{  Y}\FloatTok{.0}\NormalTok{ <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(n, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{prob=} \KeywordTok{plogis}\NormalTok{(}\OperatorTok{-}\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{0} \FloatTok{-0.1}\OperatorTok{*}\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\FloatTok{0.3}\OperatorTok{*}\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\FloatTok{0.25}\OperatorTok{*}\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\FloatTok{0.2}\OperatorTok{*}\NormalTok{w4 }\OperatorTok{+}\StringTok{ }\FloatTok{0.15}\OperatorTok{*}\NormalTok{w2}\OperatorTok{*}\NormalTok{w4))}
+  \CommentTok{# Observed outcome}
+\NormalTok{  Y <-}\StringTok{ }\NormalTok{Y}\FloatTok{.1}\OperatorTok{*}\NormalTok{A }\OperatorTok{+}\StringTok{ }\NormalTok{Y}\FloatTok{.0}\OperatorTok{*}\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{A)}
+  \CommentTok{# return data.frame}
+  \KeywordTok{data.frame}\NormalTok{(w1, w2, w3, w4, A, Y)}
+\NormalTok{\}}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{7777}\NormalTok{)}
+\NormalTok{n <-}\StringTok{ }\DecValTok{10000}
+\NormalTok{Obsdata <-}\StringTok{ }\KeywordTok{generateData}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ n)}
+\NormalTok{Obsdata <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(Obsdata)}
+\NormalTok{Obsdata <-}\KeywordTok{subset}\NormalTok{(Obsdata, }\DataTypeTok{select=}\KeywordTok{c}\NormalTok{(w1, w2, w3, w4, A, Y))}
+\NormalTok{Y  <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{Y}
+\NormalTok{A  <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{A}
+\NormalTok{w1 <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{w1}
+\NormalTok{w2 <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{w2}
+\NormalTok{w3 <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{w3}
+\NormalTok{w4 <-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{w4}
+\end{Highlighting}
+\end{Shaded}
+
+We are going to contrast one-year mortality risk for a population where
+all patients were treated with radiotherapy versus another population
+where patients were treated with chemotherapy. When estimating the
+marginal causal risk ratio (CRR) for a binary treatment (or exposure),
+methods that incorporate propensity scores, the G-computation, or a
+combination of both, namely double-robust methods, are preferred over
+naïve regression approaches which are biased under misspecification of a
+parametric outcome model. The Augmented Inverse Probability of Treatment
+Weighting (\textbf{AIPTW}) estimation is a double-robust two-step
+procedure with two equations (propensity score and mean outcome
+equations). Double-robust methods stem from based on semi-parametric
+theory (i.e., estimation equations) and only require the correct
+specification of one model. Here below we provide the formula to compute
+the MCRR:
 
 \[\text{Marginal Causal RR}^{AIPTW}\,=\,\frac{EY1}{EY0}\,=\,\text{log(EY1)}\,-\,\text{log(EY0)}.\]
 Where
 \[\text{EY(1)}\,=\,\frac{1}{n}\sum_{i=1}^{n}\left(\frac{I\left(A_{i}=1\right)}{g_n(1|W_{i})}\right)\left[Y_{i}-\bar{Q}_{n}\left(A_{i},W_{i}\right)\right]+\frac{1}{n}\sum_{i=1}^{n}\bar{Q}_{n}\left(1,\ W_{i}\right),\]
 and
 \[\text{EY(0)}\,=\,\frac{1}{n}\sum_{i=1}^{n}\left(\frac{I\left(A_{i}=1\right)}{g_n(0|W_{i})}\right)\left[Y_{i}-\bar{Q}_{n}\left(A_{i},W_{i}\right)\right]+\frac{1}{n}\sum_{i=1}^{n}\bar{Q}_{n}\left(0,\ W_{i}\right).\]
-Let\('\)s use R to estimate the MCRR. Note that the MCRR is a function
-of other two functions, the marginal predictions of the regression
+Let\('\)s use R to estimate the CRR. Note that the CRR is a function of
+other two functions, the marginal predictions of the regression
 coefficients from the propensity score logistic model and the marginal
 predictions from the outcome logistic regression model in case of a
 binary treatment and outcome.
@@ -891,47 +932,42 @@ binary treatment and outcome.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Step 1 estimation and prediction of the model for the outcome (G-computation)}
-\NormalTok{gm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{cmbd, }\DataTypeTok{data =}\NormalTok{ data, }\DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link=}\NormalTok{logit))}
-\CommentTok{# Prediction for E(Y|A,W), and E(Y|cmbd = 1, age) and, E(Y|cmbd = 0, age)}
+\NormalTok{gm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{A }\OperatorTok{+}\StringTok{ }\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\NormalTok{w4, }\DataTypeTok{data =}\NormalTok{ Obsdata, }\DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link=}\NormalTok{logit))}
+\CommentTok{# Prediction for E(Y|A,W), and E(Y|A = 1, W) and, E(Y|A = 0, W)}
 \NormalTok{QAW <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
-\NormalTok{Q1W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{cmbd =} \DecValTok{1}\NormalTok{, }\DataTypeTok{age =}\NormalTok{ data[ ,}\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{)]), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
-\NormalTok{Q0W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{cmbd =} \DecValTok{0}\NormalTok{, }\DataTypeTok{age =}\NormalTok{ data[ ,}\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{)]), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{Q1W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata=}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{A =} \DecValTok{1}\NormalTok{, w1, w2, w3, w4), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{Q0W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata=}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{A =} \DecValTok{0}\NormalTok{, w1, w2, w3, w4), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
 \CommentTok{# Step 2 estimation and prediction of the propensity score (ps): E(A|W) or E(cmbd|age)}
-\NormalTok{psm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(cmbd }\OperatorTok{~}\StringTok{ }\NormalTok{age}\OperatorTok{*}\NormalTok{age}\OperatorTok{*}\NormalTok{age, }\DataTypeTok{family =}\NormalTok{ binomial, }\DataTypeTok{data =}\NormalTok{ data)}
+\NormalTok{psm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(A }\OperatorTok{~}\StringTok{ }\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\NormalTok{w4, }\DataTypeTok{family =}\NormalTok{ binomial, }\DataTypeTok{data =}\NormalTok{ Obsdata)}
 \NormalTok{gW =}\StringTok{ }\KeywordTok{predict}\NormalTok{(psm, }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
-\NormalTok{gbounds <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x,}\DataTypeTok{bounds=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.01}\NormalTok{,}\DecValTok{1}\NormalTok{))\{}
-\NormalTok{  x[x}\OperatorTok{<}\KeywordTok{min}\NormalTok{(bounds)] <-}\StringTok{ }\KeywordTok{min}\NormalTok{(bounds)}
-\NormalTok{  x[x}\OperatorTok{>}\KeywordTok{max}\NormalTok{(bounds)] <-}\StringTok{ }\KeywordTok{max}\NormalTok{(bounds)}
-  \KeywordTok{return}\NormalTok{(x)}
-\NormalTok{\}}
-\CommentTok{#gW <- gbounds(gW,bounds=c(0.05,0.975))}
-\CommentTok{# MCRR}
-\NormalTok{EY1 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((data}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W)}
-\NormalTok{EY0 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W)}
-\NormalTok{logMCRR <-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY1) }\OperatorTok{-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY0) }
-\NormalTok{MCRR <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(logMCRR);MCRR}
+\CommentTok{# CRR}
+\NormalTok{EY1 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((Obsdata}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W)}
+\NormalTok{EY0 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W)}
+\NormalTok{logCRR <-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY1) }\OperatorTok{-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY0) }
+\NormalTok{CRR <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(logCRR);CRR}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 21.23171
+## [1] 8.156
 \end{verbatim}
 
-The marginal contrast of a population of patients where all of them have
-comorbidities versus other where patients do not have comorbidities
-after standardizing by the levels of patients age for the one-year
-mortality risk is 21 times higher for patients with comorbidities.
-However, we would like to get statistical inference for the estimate of
-the MCRR. Often researchers use the bootstrap procedure to derive 95\%
-confidence intervals (CI) but computing efficiency is low. However, we
-can use the functional Delta Method to apply the Central Limit Theorem
-and derive Wald type 95\% CI for the MCRR. Here we demonstrate how to
-derive the functional Delta Method based on the estimation of the
-efficient influence curve for the AIPTW estimator based on the formula
-(3) (Laan and Rose, 2011). In summary, for observed data \(\text{O}_i\),
-i = 1, \ldots, n an asymptotically linear estimator \(\hat\Psi\) of an
-estimand \(\Psi\), is an estimator that can be represented as follows
-(Laan and Rose, 2011):
+The marginal contrast of a population of patients where all of them were
+treated wich chemotherapy versus other where patients were treated with
+radiotherapy after standardizing by the levels of patients age, TNM
+stage, comoribidities and gender for the one-year mortality risk is 8
+times higher for patients treated with chemoterapy. However, we would
+like to get statistical inference for the estimate of the MCRR. Often
+researchers use the bootstrap procedure to derive 95\% confidence
+intervals (CI) but computing efficiency is low. However, we can use the
+functional Delta Method to apply the Central Limit Theorem and derive
+Wald type 95\% CI for the CRR. Here we demonstrate how to derive the
+functional Delta Method based on the estimation of the efficient
+influence curve for the AIPTW estimator based on the formula (3) (Laan
+and Rose, 2011). In summary, for observed data \(\text{O}_i\), i = 1,
+\ldots, n an asymptotically linear estimator \(\hat\Psi\) of an estimand
+\(\Psi\), is an estimator that can be represented as follows (Laan and
+Rose, 2011):
 \[\hat\Psi\,-\,\Psi\;=\;\frac{1}{n}\sum_{i=1}^n \text{D}(\text{O}_{i})\,+\,\text{Op}(\frac{1}{\sqrt(n)})\;\;(4).\]
 Where\\
 \[\text{D}(\text{O}_{i})=f'(\theta)(\hat\theta\,-\,\theta).\]
@@ -942,10 +978,10 @@ two partial derivatives:
 \[\frac{\partial log(EY0,EY1)}{\partial EY0}\,=\, \frac{1}{EY0}. \]
 Let\('\)s now call D1 and D0 the two functionals for the potential
 otucomes EY1 and EY0. Thus, based on \((\hat\theta\,-\,\theta)\) we get
-(Laan and Rose, 2011): D1 =
-\[\frac{1}{n}\sum_{i=1}^{n}\left(\frac{I\left(A_{i}=1\right)}{g_n(1|W_{i})}\right)\left[Y_{i}-\bar{Q}_{n}\left(A_{i},W_{i}\right)\right]+\frac{1}{n}\sum_{i=1}^{n}\bar{Q}_{n}\left(1,\ W_{i}\right)\,-\,\text{E}(Y(1))\]
-and, D0 =
-\[\frac{1}{n}\sum_{i=1}^{n}\left(\frac{I\left(A_{i}=0\right)}{g_n(0|W_{i})}\right)\left[Y_{i}-\bar{Q}_{n}\left(A_{i},W_{i}\right)\right]+\frac{1}{n}\sum_{i=1}^{n}\bar{Q}_{n}\left(0,W_{i}\right)\,-\, \text{E}(Y(0)).\]
+(Laan and Rose, 2011):
+\[\text{D1} = \left(\left(\frac{I\left(A_{i}=1\right)}{g_n(1|W_{i})}\right)\left(Y_{i}-{Q}_{n}\left(A_{i},W_{i}\right)\right)\,+\,\text{Q}_{n}\left(1,\ W_{i}\right)\right)\,-\,\text{E[Y(1)]}\]
+and,
+\[\text{D0} = \left(\left(\frac{I\left(A_{i}=0\right)}{g_n(0|W_{i})}\right)\left(Y_{i}-{Q}_{n}\left(A_{i},W_{i}\right)\right)\,+\,\text{Q}_{n}\left(0,\ W_{i}\right)\right)\,-\,\text{E[Y(0)]}\]
 Where \(g_{n}\) is the propensity score for the treatment mechanism (A)
 and \(\bar Q_{n}\) is the estimate of the conditional mean of outcome
 given treatment and confounders (W); \(E(Y|A,W)\). Therefore
@@ -954,23 +990,118 @@ log(MCRR)\(\,=\,\frac{1}{EY1}D1\,+\,\frac{1}{EY0)}D0.\)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Functional Delta Method for statisical inference}
-\NormalTok{D1 <-}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{cmbd) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W }\OperatorTok{-}\StringTok{ }\NormalTok{EY1 }
-\NormalTok{D0 <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{cmbd) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W }\OperatorTok{-}\StringTok{ }\NormalTok{EY0}
-\CommentTok{# AIPTW CRR 95%CI}
+\CommentTok{# Functional Delta Method based on the IC for statisical inference}
+\NormalTok{D1 <-}\StringTok{ }\NormalTok{(A) }\OperatorTok{*}\StringTok{ }\NormalTok{(Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W }\OperatorTok{-}\StringTok{ }\NormalTok{EY1 }
+\NormalTok{D0 <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{A) }\OperatorTok{*}\StringTok{ }\NormalTok{(Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W }\OperatorTok{-}\StringTok{ }\NormalTok{EY0}
+\CommentTok{# AIPTW CRR and 95%CI}
 \NormalTok{EIC <-}\StringTok{ }\NormalTok{((}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{EY1) }\OperatorTok{*}\StringTok{ }\NormalTok{D1) }\OperatorTok{+}\StringTok{ }\NormalTok{((}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{EY0) }\OperatorTok{*}\StringTok{ }\NormalTok{D0)}
-\NormalTok{varHat <-}\StringTok{ }\KeywordTok{var}\NormalTok{(EIC) }\OperatorTok{/}\StringTok{ }\NormalTok{n}
-\NormalTok{CI <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{exp}\NormalTok{(logMCRR }\OperatorTok{-}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varHat)), }\KeywordTok{exp}\NormalTok{(logMCRR }\OperatorTok{+}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varHat))); MCRR; CI}
+\NormalTok{varEIC <-}\StringTok{ }\KeywordTok{var}\NormalTok{(EIC) }\OperatorTok{/}\StringTok{ }\NormalTok{n}
+\NormalTok{CI <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{exp}\NormalTok{(logCRR }\OperatorTok{-}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varEIC)), }\KeywordTok{exp}\NormalTok{(logCRR }\OperatorTok{+}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varEIC)))}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ CRR:"}\NormalTok{, CRR)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 21.23171
+## 
+##  CRR: 8.156
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ CRR 95%CI:"}\NormalTok{, CI)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] 16.95024 26.59464
+## 
+##  CRR 95%CI: 7.109 9.359
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Summary IC}
+\KeywordTok{hist}\NormalTok{(IC)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DeltaMethodTutorial_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{varEIC}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004921
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# gbounds <- function(x, bounds = c(0,1))\{}
+ \CommentTok{# x[x<min(bounds)] <- min(bounds)}
+  \CommentTok{#x[x>max(bounds)] <- max(bounds)}
+  \CommentTok{#return(x)}
+\CommentTok{#\}}
+
+\CommentTok{# gWb <- gbounds(gW, bounds=c(0.1,0.90))}
+
+\NormalTok{EY1 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((Obsdata}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W)}
+\NormalTok{EY0 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W)}
+\NormalTok{logCRR <-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY1) }\OperatorTok{-}\StringTok{ }\KeywordTok{log}\NormalTok{(EY0) }
+\NormalTok{CRR <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(logCRR);CRR}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.156
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{D1 <-}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{A) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W }\OperatorTok{-}\StringTok{ }\NormalTok{EY1 }
+\NormalTok{D0 <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{Obsdata}\OperatorTok{$}\NormalTok{A) }\OperatorTok{*}\StringTok{ }\NormalTok{(Obsdata}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W }\OperatorTok{-}\StringTok{ }\NormalTok{EY0}
+\CommentTok{# AIPTW CRR and 95%CI}
+\NormalTok{IC <-}\StringTok{ }\NormalTok{((}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{EY1) }\OperatorTok{*}\StringTok{ }\NormalTok{D1) }\OperatorTok{+}\StringTok{ }\NormalTok{((}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{EY0) }\OperatorTok{*}\StringTok{ }\NormalTok{D0)}
+\NormalTok{varHat <-}\StringTok{ }\KeywordTok{var}\NormalTok{(IC) }\OperatorTok{/}\StringTok{ }\NormalTok{n}
+\NormalTok{CI <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{exp}\NormalTok{(logCRR }\OperatorTok{-}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varHat)), }\KeywordTok{exp}\NormalTok{(logCRR }\OperatorTok{+}\StringTok{ }\FloatTok{1.96} \OperatorTok{*}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(varHat))); CRR}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.156
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ CRR:"}\NormalTok{, CRR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CRR: 8.156
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ CRR 95%CI:"}\NormalTok{, CI)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  CRR 95%CI: 7.109 9.359
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Summary IC}
+\KeywordTok{hist}\NormalTok{(IC)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DeltaMethodTutorial_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 Note: In general, when we have near positivity violations i.e., the
 positivity assumption states that within strata of W (age in our
@@ -1031,18 +1162,19 @@ regression weights). We are going to use the nonparametric bootstrapping
 \begin{Highlighting}[]
 \NormalTok{aiptw.w =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(data,indices)}
 \NormalTok{\{}
-\NormalTok{    dat=data[indices,]}
-\NormalTok{    gm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{cmbd, }\DataTypeTok{data =}\NormalTok{ dat, }\DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link=}\NormalTok{logit))}
+\NormalTok{    dat=Obsdata[indices,]}
+    \CommentTok{# CRR}
+\NormalTok{    gm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{A }\OperatorTok{+}\StringTok{ }\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\NormalTok{w4, }\DataTypeTok{data =}\NormalTok{ dat, }\DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link=}\NormalTok{logit))}
     \CommentTok{# Prediction for E(Y|A,W), and E(Y|cmbd = 1, age) and, E(Y|cmbd = 0, age)}
-\NormalTok{    Q1W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{cmbd =} \DecValTok{1}\NormalTok{, }\DataTypeTok{age =}\NormalTok{ dat[ ,}\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{)]), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
-\NormalTok{    Q0W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{cmbd =} \DecValTok{0}\NormalTok{, }\DataTypeTok{age =}\NormalTok{ dat[ ,}\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{)]), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{    Q1W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{A =} \DecValTok{1}\NormalTok{, w1, w2, w3, w4), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{    Q0W <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(gm, }\DataTypeTok{newdata =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{A =} \DecValTok{0}\NormalTok{, w1, w2, w3, w4), }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
     \CommentTok{# Step 2 estimation and prediction of the propensity score (ps): E(A|W) or E(cmbd|age)}
-\NormalTok{    psm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(cmbd }\OperatorTok{~}\StringTok{ }\NormalTok{age, }\DataTypeTok{family =}\NormalTok{ binomial, }\DataTypeTok{data =}\NormalTok{ dat)}
+\NormalTok{    psm <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(A }\OperatorTok{~}\StringTok{ }\NormalTok{w1 }\OperatorTok{+}\StringTok{ }\NormalTok{w2 }\OperatorTok{+}\StringTok{ }\NormalTok{w3 }\OperatorTok{+}\StringTok{ }\NormalTok{w4, }\DataTypeTok{family =}\NormalTok{ binomial, }\DataTypeTok{data =}\NormalTok{ dat)}
 \NormalTok{    gW =}\StringTok{ }\KeywordTok{predict}\NormalTok{(psm, }\DataTypeTok{type =} \StringTok{"response"}\NormalTok{)}
-    \CommentTok{# MCRR}
-\NormalTok{    EY1 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((data}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W)}
-\NormalTok{    EY0 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W)}
-\NormalTok{    MCRR <-}\StringTok{ }\NormalTok{EY1 }\OperatorTok{/}\StringTok{ }\NormalTok{EY0 }
+    \CommentTok{# CRR}
+\NormalTok{    EY1 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q1W) }\OperatorTok{/}\StringTok{ }\NormalTok{gW }\OperatorTok{+}\StringTok{ }\NormalTok{Q1W)}
+\NormalTok{    EY0 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{((}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{Y) }\OperatorTok{*}\StringTok{ }\NormalTok{(Y }\OperatorTok{-}\StringTok{ }\NormalTok{Q0W) }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{gW) }\OperatorTok{+}\StringTok{ }\NormalTok{Q0W)}
+\NormalTok{    CRR <-}\StringTok{ }\NormalTok{EY1 }\OperatorTok{/}\StringTok{ }\NormalTok{EY0}
 \NormalTok{\}}
 \CommentTok{# Can get original estimate, by plugging in indices 1:n}
 \KeywordTok{aiptw.w}\NormalTok{(data,}\DataTypeTok{indices=}\DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(data))}
@@ -1062,7 +1194,7 @@ regression weights). We are going to use the nonparametric bootstrapping
 ## 
 ## Intervals : 
 ## Level     Percentile     
-## 95%   (17.27, 29.26 )  
+## 95%   ( 6.277, 19.633 )  
 ## Calculations and Intervals on Original Scale
 \end{verbatim}
 
@@ -1114,229 +1246,131 @@ more conservative confidence intervals.
 \end{Shaded}
 
 \begin{verbatim}
-## - Session info ----------------------------------------------------------
+## - Session info ---------------------------------------------------------------
 ##  setting  value                       
-##  version  R version 3.5.2 (2018-12-20)
-##  os       macOS  10.15.3              
-##  system   x86_64, darwin15.6.0        
-##  ui       X11                         
+##  version  R version 3.6.1 (2019-07-05)
+##  os       Windows 10 x64              
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
 ##  language (EN)                        
-##  collate  en_US.UTF-8                 
-##  ctype    en_US.UTF-8                 
-##  tz       Europe/Madrid               
-##  date     2020-04-17                  
+##  collate  Spanish_Spain.1252          
+##  ctype    Spanish_Spain.1252          
+##  tz       Europe/Paris                
+##  date     2020-04-24                  
 ## 
-## - Packages --------------------------------------------------------------
-##  package      * version  date       lib
-##  abind          1.4-5    2016-07-21 [1]
-##  acepack        1.4.1    2016-10-29 [1]
-##  assertthat     0.2.1    2019-03-21 [1]
-##  backports      1.1.5    2019-10-02 [1]
-##  base64enc      0.1-3    2015-07-28 [1]
-##  boot         * 1.3-20   2017-08-06 [1]
-##  broom          0.5.2    2019-04-07 [1]
-##  callr          3.2.0    2019-03-15 [1]
-##  car          * 3.0-3    2019-05-27 [1]
-##  carData      * 3.0-2    2018-09-30 [1]
-##  cellranger     1.1.0    2016-07-27 [1]
-##  checkmate      1.9.3    2019-05-03 [1]
-##  class          7.3-15   2019-01-01 [1]
-##  cli            1.1.0    2019-03-19 [1]
-##  cluster        2.0.8    2019-04-05 [1]
-##  colorspace     1.4-1    2019-03-18 [1]
-##  crayon         1.3.4    2017-09-16 [1]
-##  curl           4.0      2019-07-22 [1]
-##  data.table     1.12.2   2019-04-07 [1]
-##  desc           1.2.0    2018-05-01 [1]
-##  devtools       2.0.1    2018-10-26 [1]
-##  digest         0.6.22   2019-10-21 [1]
-##  dplyr        * 0.8.3    2019-07-04 [1]
-##  e1071          1.7-1    2019-03-19 [1]
-##  evaluate       0.14     2019-05-28 [1]
-##  expm           0.999-4  2019-03-21 [1]
-##  forcats      * 0.4.0    2019-02-17 [1]
-##  foreign        0.8-71   2018-07-20 [1]
-##  Formula        1.2-3    2018-05-03 [1]
-##  fs             1.3.1    2019-05-06 [1]
-##  generics       0.0.2    2018-11-29 [1]
-##  ggplot2      * 3.1.1    2019-04-07 [1]
-##  glue           1.3.1    2019-03-12 [1]
-##  gridExtra      2.3      2017-09-09 [1]
-##  gtable         0.3.0    2019-03-25 [1]
-##  haven          2.1.1    2019-07-04 [1]
-##  Hmisc          4.2-0    2019-01-26 [1]
-##  hms            0.5.0    2019-07-09 [1]
-##  htmlTable      1.13.1   2019-01-07 [1]
-##  htmltools      0.3.6    2017-04-28 [1]
-##  htmlwidgets    1.4      2019-05-14 [1]
-##  httr           1.4.0    2018-12-11 [1]
-##  jsonlite       1.6      2018-12-07 [1]
-##  knitr          1.23     2019-05-18 [1]
-##  lattice        0.20-38  2018-11-04 [1]
-##  latticeExtra   0.6-28   2016-02-09 [1]
-##  lazyeval       0.2.2    2019-03-15 [1]
-##  lubridate      1.7.4    2018-04-11 [1]
-##  magrittr       1.5      2014-11-22 [1]
-##  MASS           7.3-51.4 2019-03-31 [1]
-##  Matrix         1.2-17   2019-03-22 [1]
-##  memoise        1.1.0    2017-04-21 [1]
-##  modelr         0.1.4    2019-02-18 [1]
-##  msm          * 1.6.7    2019-03-18 [1]
-##  munsell        0.5.0    2018-06-12 [1]
-##  mvtnorm        1.0-10   2019-03-05 [1]
-##  nlme           3.1-138  2019-04-07 [1]
-##  nnet           7.3-12   2016-02-02 [1]
-##  nortest        1.0-4    2015-07-30 [1]
-##  openxlsx       4.1.0.1  2019-05-28 [1]
-##  pillar         1.4.2    2019-06-29 [1]
-##  pkgbuild       1.0.3    2019-03-20 [1]
-##  pkgconfig      2.0.3    2019-09-22 [1]
-##  pkgload        1.0.2    2018-10-29 [1]
-##  plyr           1.8.4    2016-06-08 [1]
-##  prettyunits    1.0.2    2015-07-13 [1]
-##  processx       3.3.0    2019-03-10 [1]
-##  ps             1.3.0    2018-12-21 [1]
-##  purrr        * 0.3.3    2019-10-18 [1]
-##  R6             2.4.0    2019-02-14 [1]
-##  RcmdrMisc    * 2.5-1    2018-09-10 [1]
-##  RColorBrewer   1.1-2    2014-12-07 [1]
-##  Rcpp           1.0.2    2019-07-25 [1]
-##  readr        * 1.3.1    2018-12-21 [1]
-##  readxl         1.3.1    2019-03-13 [1]
-##  remotes        2.1.0    2019-06-24 [1]
-##  rio            0.5.16   2018-11-26 [1]
-##  rlang          0.4.1    2019-10-24 [1]
-##  rmarkdown      1.15     2019-08-21 [1]
-##  rpart          4.1-13   2018-02-23 [1]
-##  rprojroot      1.3-2    2018-01-03 [1]
-##  rstudioapi     0.11     2020-02-07 [1]
-##  rvest          0.3.2    2016-06-17 [1]
-##  sandwich     * 2.5-1    2019-04-06 [1]
-##  scales         1.0.0    2018-08-09 [1]
-##  sessioninfo    1.1.1    2018-11-05 [1]
-##  stringi        1.4.3    2019-03-12 [1]
-##  stringr      * 1.4.0    2019-02-10 [1]
-##  survival       2.44-1.1 2019-04-01 [1]
-##  testthat       2.0.1    2018-10-13 [1]
-##  tibble       * 2.1.3    2019-06-06 [1]
-##  tidyr        * 0.8.3    2019-03-01 [1]
-##  tidyselect     0.2.5    2018-10-11 [1]
-##  tidyverse    * 1.2.1    2017-11-14 [1]
-##  usethis        1.5.1    2019-07-04 [1]
-##  vctrs          0.2.0    2019-07-05 [1]
-##  withr          2.1.2    2018-03-15 [1]
-##  xfun           0.8      2019-06-25 [1]
-##  xml2           1.2.0    2018-01-24 [1]
-##  yaml           2.2.0    2018-07-25 [1]
-##  zeallot        0.1.0    2018-01-28 [1]
-##  zip            2.0.3    2019-07-03 [1]
-##  zoo            1.8-5    2019-03-21 [1]
-##  source                               
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  Github (ramnathv/htmlwidgets@853b1b0)
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.0)                       
-##  CRAN (R 3.5.2)                       
-##  CRAN (R 3.5.2)                       
+## - Packages -------------------------------------------------------------------
+##  package      * version    date       lib source                            
+##  abind          1.4-5      2016-07-21 [1] CRAN (R 3.6.0)                    
+##  acepack        1.4.1      2016-10-29 [1] CRAN (R 3.6.1)                    
+##  assertthat     0.2.1      2019-03-21 [1] CRAN (R 3.6.1)                    
+##  backports      1.1.5      2019-10-02 [1] CRAN (R 3.6.1)                    
+##  base64enc      0.1-3      2015-07-28 [1] CRAN (R 3.6.0)                    
+##  boot         * 1.3-24     2019-12-20 [1] CRAN (R 3.6.1)                    
+##  broom          0.5.5      2020-02-29 [1] CRAN (R 3.6.3)                    
+##  callr          3.4.1      2020-01-24 [1] CRAN (R 3.6.1)                    
+##  car          * 3.0-6      2019-12-23 [1] CRAN (R 3.6.2)                    
+##  carData      * 3.0-3      2019-11-16 [1] CRAN (R 3.6.1)                    
+##  cellranger     1.1.0      2016-07-27 [1] CRAN (R 3.6.1)                    
+##  checkmate      1.9.4      2019-07-04 [1] CRAN (R 3.6.1)                    
+##  class          7.3-15     2019-01-01 [1] CRAN (R 3.6.1)                    
+##  cli            2.0.1      2020-01-08 [1] CRAN (R 3.6.1)                    
+##  cluster        2.1.0      2019-06-19 [1] CRAN (R 3.6.2)                    
+##  colorspace     1.4-1      2019-03-18 [1] CRAN (R 3.6.1)                    
+##  crayon         1.3.4      2017-09-16 [1] CRAN (R 3.6.1)                    
+##  curl           4.3        2019-12-02 [1] CRAN (R 3.6.1)                    
+##  data.table     1.12.8     2019-12-09 [1] CRAN (R 3.6.2)                    
+##  DBI            1.1.0      2019-12-15 [1] CRAN (R 3.6.1)                    
+##  dbplyr         1.4.2      2019-06-17 [1] CRAN (R 3.6.1)                    
+##  desc           1.2.0      2018-05-01 [1] CRAN (R 3.6.1)                    
+##  devtools       2.2.2      2020-02-17 [1] CRAN (R 3.6.3)                    
+##  digest         0.6.23     2019-11-23 [1] CRAN (R 3.6.1)                    
+##  dplyr        * 0.8.4      2020-01-31 [1] CRAN (R 3.6.1)                    
+##  e1071          1.7-3      2019-11-26 [1] CRAN (R 3.6.1)                    
+##  ellipsis       0.3.0      2019-09-20 [1] CRAN (R 3.6.1)                    
+##  evaluate       0.14       2019-05-28 [1] CRAN (R 3.6.1)                    
+##  expm           0.999-4    2019-03-21 [1] CRAN (R 3.6.3)                    
+##  fansi          0.4.1      2020-01-08 [1] CRAN (R 3.6.1)                    
+##  forcats      * 0.4.0      2019-02-17 [1] CRAN (R 3.6.1)                    
+##  foreign        0.8-75     2020-01-20 [1] CRAN (R 3.6.1)                    
+##  Formula        1.2-3      2018-05-03 [1] CRAN (R 3.6.1)                    
+##  fs             1.3.1      2019-05-06 [1] CRAN (R 3.6.1)                    
+##  generics       0.0.2      2018-11-29 [1] CRAN (R 3.6.1)                    
+##  ggplot2      * 3.2.1      2019-08-10 [1] CRAN (R 3.6.2)                    
+##  glue           1.3.1      2019-03-12 [1] CRAN (R 3.6.1)                    
+##  gridExtra      2.3        2017-09-09 [1] CRAN (R 3.6.1)                    
+##  gtable         0.3.0      2019-03-25 [1] CRAN (R 3.6.1)                    
+##  haven          2.2.0      2019-11-08 [1] CRAN (R 3.6.1)                    
+##  Hmisc          4.3-0      2019-11-07 [1] CRAN (R 3.6.1)                    
+##  hms            0.5.3      2020-01-08 [1] CRAN (R 3.6.1)                    
+##  htmlTable      1.13.3     2019-12-04 [1] CRAN (R 3.6.1)                    
+##  htmltools      0.4.0.9002 2020-01-21 [1] Github (rstudio/htmltools@e07546c)
+##  htmlwidgets    1.5.1      2019-10-08 [1] CRAN (R 3.6.2)                    
+##  httr           1.4.1      2019-08-05 [1] CRAN (R 3.6.1)                    
+##  jpeg           0.1-8.1    2019-10-24 [1] CRAN (R 3.6.1)                    
+##  jsonlite       1.6.1      2020-02-02 [1] CRAN (R 3.6.1)                    
+##  knitr          1.27       2020-01-16 [1] CRAN (R 3.6.2)                    
+##  lattice        0.20-38    2018-11-04 [1] CRAN (R 3.6.1)                    
+##  latticeExtra   0.6-29     2019-12-19 [1] CRAN (R 3.6.1)                    
+##  lazyeval       0.2.2      2019-03-15 [1] CRAN (R 3.6.1)                    
+##  lifecycle      0.1.0      2019-08-01 [1] CRAN (R 3.6.1)                    
+##  lubridate      1.7.4      2018-04-11 [1] CRAN (R 3.6.1)                    
+##  magrittr       1.5        2014-11-22 [1] CRAN (R 3.6.1)                    
+##  MASS           7.3-51.5   2019-12-20 [1] CRAN (R 3.6.1)                    
+##  Matrix         1.2-18     2019-11-27 [1] CRAN (R 3.6.1)                    
+##  memoise        1.1.0      2017-04-21 [1] CRAN (R 3.6.1)                    
+##  modelr         0.1.5      2019-08-08 [1] CRAN (R 3.6.1)                    
+##  msm          * 1.6.8      2019-12-16 [1] CRAN (R 3.6.3)                    
+##  munsell        0.5.0      2018-06-12 [1] CRAN (R 3.6.1)                    
+##  mvtnorm        1.0-12     2020-01-09 [1] CRAN (R 3.6.1)                    
+##  nlme           3.1-143    2019-12-10 [1] CRAN (R 3.6.1)                    
+##  nnet           7.3-12     2016-02-02 [1] CRAN (R 3.6.1)                    
+##  nortest        1.0-4      2015-07-30 [1] CRAN (R 3.6.0)                    
+##  openxlsx       4.1.4      2019-12-06 [1] CRAN (R 3.6.1)                    
+##  pillar         1.4.3      2019-12-20 [1] CRAN (R 3.6.1)                    
+##  pkgbuild       1.0.6      2019-10-09 [1] CRAN (R 3.6.1)                    
+##  pkgconfig      2.0.3      2019-09-22 [1] CRAN (R 3.6.1)                    
+##  pkgload        1.0.2      2018-10-29 [1] CRAN (R 3.6.1)                    
+##  png            0.1-7      2013-12-03 [1] CRAN (R 3.6.0)                    
+##  prettyunits    1.1.1      2020-01-24 [1] CRAN (R 3.6.1)                    
+##  processx       3.4.1      2019-07-18 [1] CRAN (R 3.6.1)                    
+##  ps             1.3.0      2018-12-21 [1] CRAN (R 3.6.1)                    
+##  purrr        * 0.3.3      2019-10-18 [1] CRAN (R 3.6.1)                    
+##  R6             2.4.1      2019-11-12 [1] CRAN (R 3.6.1)                    
+##  RcmdrMisc    * 2.7-0      2020-01-14 [1] CRAN (R 3.6.2)                    
+##  RColorBrewer   1.1-2      2014-12-07 [1] CRAN (R 3.6.0)                    
+##  Rcpp           1.0.3      2019-11-08 [1] CRAN (R 3.6.1)                    
+##  readr        * 1.3.1      2018-12-21 [1] CRAN (R 3.6.1)                    
+##  readxl         1.3.1      2019-03-13 [1] CRAN (R 3.6.1)                    
+##  remotes        2.1.1      2020-02-15 [1] CRAN (R 3.6.3)                    
+##  reprex         0.3.0      2019-05-16 [1] CRAN (R 3.6.1)                    
+##  rio            0.5.16     2018-11-26 [1] CRAN (R 3.6.1)                    
+##  rlang          0.4.4      2020-01-28 [1] CRAN (R 3.6.1)                    
+##  rmarkdown      2.1.1      2020-01-28 [1] Github (rstudio/rmarkdown@18ba267)
+##  rpart          4.1-15     2019-04-12 [1] CRAN (R 3.6.1)                    
+##  rprojroot      1.3-2      2018-01-03 [1] CRAN (R 3.6.1)                    
+##  rstudioapi     0.11       2020-02-07 [1] CRAN (R 3.6.2)                    
+##  rvest          0.3.5      2019-11-08 [1] CRAN (R 3.6.1)                    
+##  sandwich     * 2.5-1      2019-04-06 [1] CRAN (R 3.6.1)                    
+##  scales         1.1.0      2019-11-18 [1] CRAN (R 3.6.1)                    
+##  sessioninfo    1.1.1      2018-11-05 [1] CRAN (R 3.6.1)                    
+##  stringi        1.4.5      2020-01-11 [1] CRAN (R 3.6.1)                    
+##  stringr      * 1.4.0      2019-02-10 [1] CRAN (R 3.6.3)                    
+##  survival       3.1-8      2019-12-03 [1] CRAN (R 3.6.1)                    
+##  testthat       2.3.1      2019-12-01 [1] CRAN (R 3.6.2)                    
+##  tibble       * 2.1.3      2019-06-06 [1] CRAN (R 3.6.1)                    
+##  tidyr        * 1.0.2      2020-01-24 [1] CRAN (R 3.6.1)                    
+##  tidyselect     1.0.0      2020-01-27 [1] CRAN (R 3.6.1)                    
+##  tidyverse    * 1.3.0      2019-11-21 [1] CRAN (R 3.6.1)                    
+##  usethis        1.5.1      2019-07-04 [1] CRAN (R 3.6.1)                    
+##  vctrs          0.2.2      2020-01-24 [1] CRAN (R 3.6.1)                    
+##  withr          2.1.2      2018-03-15 [1] CRAN (R 3.6.1)                    
+##  xfun           0.12       2020-01-13 [1] CRAN (R 3.6.1)                    
+##  xml2           1.2.2      2019-08-09 [1] CRAN (R 3.6.1)                    
+##  yaml           2.2.1      2020-02-01 [1] CRAN (R 3.6.1)                    
+##  zip            2.0.4      2019-09-01 [1] CRAN (R 3.6.1)                    
+##  zoo            1.8-7      2020-01-10 [1] CRAN (R 3.6.1)                    
 ## 
-## [1] /Library/Frameworks/R.framework/Versions/3.5/Resources/library
+## [1] C:/Users/dredondo/Documents/R/R-3.6.1/library
 \end{verbatim}
 
 \hypertarget{thank-you}{%
@@ -1435,6 +1469,5 @@ thoroughly rev. and updated. Wolters Kluwer Health/Lippincott Williams
 Rubin DB. (2007). The design versus the analysis of observational
 studies for causal effects: Parallels with the design of randomized
 trials. \emph{Stat Med} \textbf{26}: 20--36.
-
 
 \end{document}
