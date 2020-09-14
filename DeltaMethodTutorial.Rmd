@@ -1,5 +1,5 @@
 ---
-title: "The Delta Method in Epidemology: An Applied and Reproducible Tutorial"
+title: "The Delta Method in Epidemiology: An Applied and Reproducible Tutorial"
 author: "Miguel Angel Luque Fernandez, MA, MPH, MSc, Ph.D"
 date: "10/5/2019 \n https://scholar.harvard.edu/malf/home"
 output:
