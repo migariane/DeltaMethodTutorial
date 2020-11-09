@@ -1,7 +1,7 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Miguel Luque at 2020-04-20 21:12:54 +0200 
+%% Created for MALF at 2020-04-17 13:50:35 +0200 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
@@ -9,94 +9,7 @@
 
 @comment{jabref-meta: databaseType:biblatex;}
 
-@book{Vaart98,
-	Address = {Cambridge, UK},
-	Author = {Vaart, A. W. van der},
-	Call-Number = {QA276},
-	Date-Added = {2020-04-20 21:12:24 +0200},
-	Date-Modified = {2020-04-20 21:12:51 +0200},
-	Dewey-Call-Number = {519.5},
-	Genre = {Mathematical statistics},
-	Isbn = {0521496039 (hardcover)},
-	Library-Id = {98015176},
-	Publisher = {Cambridge University Press},
-	Series = {Cambridge series in statistical and probabilistic mathematics},
-	Title = {Asymptotic statistics},
-	Url = {http://www.loc.gov/catdir/toc/cam024/98015176.html},
-	Year = {1998}}
 
-@article{Levy2018,
-	Abstract = {In the world of targeted learning, cross-validated targeted maximum likelihood estimators, CV-TMLE [Zheng:2010aa], has a distinct advantage over TMLE [Laan:2006aa] in that one less condition is required of CV-TMLE in order to achieve asymptotic efficiency in the nonparametric or semiparametric settings. CV-TMLE as originally formulated, consists of averaging usually 10 (for 10-fold cross-validation) parameter estimates, each of which is performed on a validation set separate from where the initial fit was trained. The targeting step is usually performed as a pooled regression over all validation folds but in each fold, we separately evaluate any means as well as the parameter estimate. One nice thing about CV-TMLE, is that we average 10 plug-in estimates so the plug-in quality of preserving the natural parameter bounds is respected. Our adjustment of this procedure also preserves the plug-in characteristic as well as avoids the donsker condtion. The advantage of our procedure is the implementation of the targeting is identical to that of a regular TMLE, once all the validation set initial predictions have been formed. In short, we stack the validation set predictions and pretend as if we have a regular TMLE, which is not necessarily quite a plug-in estimator on each fold but overall will perform asymptotically the same and might have some slight advantage, a subject for future research. In the case of average treatment effect, treatment specific mean and mean outcome under a stochastic intervention, the procedure overlaps exactly with the originally formulated CV-TMLE with a pooled regression for the targeting.},
-	Author = {Jonathan Levy},
-	Date-Added = {2020-04-19 09:47:14 +0200},
-	Date-Modified = {2020-04-19 09:47:25 +0200},
-	Eprint = {1811.04573},
-	Month = {11},
-	Title = {An Easy Implementation of CV-TMLE},
-	Url = {https://arxiv.org/pdf/1811.04573.pdf},
-	Year = {2018},
-	Bdsk-Url-1 = {https://arxiv.org/pdf/1811.04573.pdf},
-	Bdsk-Url-2 = {https://arxiv.org/abs/1811.04573}}
-
-@book{Wolfram92,
-	Address = {Reading, Mass.},
-	Author = {Wolfram, Stephen},
-	Call-Number = {QA76.95},
-	Date-Added = {2020-04-19 09:03:26 +0200},
-	Date-Modified = {2020-04-19 09:03:41 +0200},
-	Dewey-Call-Number = {510/.285/5369},
-	Genre = {Mathematics},
-	Isbn = {020151012X},
-	Library-Id = {92035439},
-	Publisher = {Addison-Wesley Pub. Co.},
-	Title = {Mathematica reference guide},
-	Year = {1992}}
-
-@article{schafer2007,
-	Abstract = {When outcomes are missing for reasons beyond an investigator's control, there are two different ways to adjust a parameter estimate for covariates that may be related both to the outcome and to missingness. One approach is to model the relationships between the covariates and the outcome and use those relationships to predict the missing values. Another is to model the probabilities of missingness given the covariates and incorporate them into a weighted or stratified estimate. Doubly robust (DR) procedures apply both types of model simultaneously and produce a consistent estimate of the parameter if either of the two models has been correctly specified. In this article, we show that DR estimates can be constructed in many ways. We compare the performance of various DR and non-DR estimates of a population mean in a simulated example where both models are incorrect but neither is grossly misspecified. Methods that use inverse-probabilities as weights, whether they are DR or not, are sensitive to misspecification of the propensity model when some estimated propensities are small. Many DR methods perform better than simple inverse-probability weighting. None of the DR methods we tried, however, improved upon the performance of simple regression-based prediction of the missing values. This study does not represent every missing-data problem that will arise in practice. But it does demonstrate that, in at least some settings, two wrong models are not better than one.},
-	Author = {Joseph D. Y. Kang and Joseph L. Schafer},
-	Date-Added = {2020-04-17 19:15:04 +0200},
-	Date-Modified = {2020-04-17 19:15:15 +0200},
-	Issn = {08834237},
-	Journal = {Statistical Science},
-	Number = {4},
-	Pages = {523--539},
-	Publisher = {Institute of Mathematical Statistics},
-	Title = {Demystifying Double Robustness: A Comparison of Alternative Strategies for Estimating a Population Mean from Incomplete Data},
-	Url = {http://www.jstor.org/stable/27645858},
-	Volume = {22},
-	Year = {2007},
-	Bdsk-Url-1 = {http://www.jstor.org/stable/27645858}}
-
-@article{Tsiatis:2007aa,
-	Author = {Tsiatis, Anastasios A and Davidian, Marie},
-	Date-Added = {2020-04-17 19:14:11 +0200},
-	Date-Modified = {2020-04-17 19:14:11 +0200},
-	Doi = {10.1214/07-STS227},
-	Journal = {Stat Sci},
-	Journal-Full = {Statistical science : a review journal of the Institute of Mathematical Statistics},
-	Number = {4},
-	Pages = {569-573},
-	Pmc = {PMC2397555},
-	Pmid = {18516239},
-	Pst = {ppublish},
-	Title = {Comment: Demystifying Double Robustness: A Comparison of Alternative Strategies for Estimating a Population Mean from Incomplete Data},
-	Volume = {22},
-	Year = {2007},
-	Bdsk-Url-1 = {https://doi.org/10.1214/07-STS227}}
-
-@article{Cai2019,
-	Abstract = {The Highly-Adaptive-LASSO Targeted Minimum Loss Estimator (HAL-TMLE) is an efficient plug-in estimator of a pathwise differentiable parameter in a statistical model that at minimal (and possibly only) assumes that the sectional variation norm of the true nuisance functional parameters (i.e., the relevant part of data distribution) are finite. It relies on an initial estimator (HAL-MLE) of the nuisance functional parameters by minimizing the empirical risk over the parameter space under the constraint that the sectional variation norm of the candidate functions are bounded by a constant, where this constant can be selected with cross-validation. In this article, we establish that the nonparametric bootstrap for the HAL-TMLE, fixing the value of the sectional variation norm at a value larger or equal than the cross-validation selector, provides a consistent method for estimating the normal limit distribution of the HAL-TMLE. In order to optimize the finite sample coverage of the nonparametric bootstrap confidence intervals, we propose a selection method for this sectional variation norm that is based on running the nonparametric bootstrap for all values of the sectional variation norm larger than the one selected by cross-validation, and subsequently determining a value at which the width of the resulting confidence intervals reaches a plateau. We demonstrate our method for 1) nonparametric estimation of the average treatment effect based on observing on each unit a covariate vector, binary treatment, and outcome, and for 2) nonparametric estimation of the integral of the square of the multivariate density of the data distribution. In addition, we also present simulation results for these two examples demonstrating the excellent finite sample coverage of bootstrap-based confidence intervals.},
-	Author = {Weixin Cai and Mark van der Laan},
-	Date-Added = {2020-04-17 18:05:53 +0200},
-	Date-Modified = {2020-04-17 18:06:12 +0200},
-	Eprint = {1905.10299},
-	Month = {05},
-	Title = {Nonparametric Bootstrap Inference for the Targeted Highly Adaptive LASSO Estimator},
-	Url = {https://arxiv.org/pdf/1905.10299.pdf},
-	Year = {2019},
-	Bdsk-Url-1 = {https://arxiv.org/pdf/1905.10299.pdf},
-	Bdsk-Url-2 = {https://arxiv.org/abs/1905.10299}}
 
 @article{robins1994,
 	Abstract = {In applied problems it is common to specify a model for the conditional mean of a response given a set of regressors. A subset of the regressors may be missing for some study subjects either by design or happenstance. In this article we propose a new class of semiparametric estimators, based on inverse probability weighted estimating equations, that are consistent for parameter vector α0 of the conditional mean model when the data are missing at random in the sense of Rubin and the missingness probabilities are either known or can be parametrically modeled. We show that the asymptotic variance of the optimal estimator in our class attains the semiparametric variance bound for the model by first showing that our estimation problem is a special case of the general problem of parameter estimation in an arbitrary semiparametric model in which the data are missing at random and the probability of observing complete data is bounded away from 0, and then deriving a representation for the efficient score, the semiparametric variance bound, and the influence function of any regular, asymptotically linear estimator in this more general estimation problem. Because the optimal estimator depends on the unknown probability law generating the data, we propose locally and globally adaptive semiparametric efficient estimators. We compare estimators in our class with previously proposed estimators. We show that each previous estimator is asymptotically equivalent to some, usually inefficient, estimator in our class. This equivalence is a consequence of a proposition stating that every regular asymptotic linear estimator of α0 is asymptotically equivalent to some estimator in our class. We compare various estimators in a small simulation study and offer some practical recommendations.},
@@ -340,6 +253,29 @@
 
 @book{Efron1993,
 	Address = {New York},
+	Annote = {LDR    01120pam  2200277 a 4500
+001    2049363
+005    20070713181031.0
+008    930426s1993    nyua     b    001 0 eng  
+906    $a7$bcbc$corignew$d1$eocip$f19$gy-gencatlg
+955    $apc03 to sa00 04-26-93; jd07 04-25-93; jd99 04-28-93; jd27 04-29-93;aa05 04-29-93; CIP ver. pv07 01-03-96
+035    $9(DLC)   93004489
+010    $a   93004489 
+020    $a0412042312
+040    $aDLC$cDLC$dDLC
+050 00 $aQA276.8$b.E3745 1993
+082 00 $a519.5/44$220
+100 1  $aEfron, Bradley.
+245 13 $aAn introduction to the bootstrap /$cBradley Efron and Robert J. Tibshirani.
+260    $aNew York :$bChapman & Hall,$cc1993.
+300    $axvi, 436 p. :$bill. ;$c23 cm.
+440  0 $aMonographs on statistics and applied probability ;$v57
+504    $aIncludes bibliographical references (p. [413]-425) and indexes.
+650  0 $aBootstrap (Statistics)
+700 1  $aTibshirani, Robert.
+856 42 $3Publisher description$uhttp://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html
+991    $bc-GenColl$hQA276.8$i.E3745 1993$p00035197606$tCopy 1$v57$wBOOKS
+},
 	Author = {Efron, Bradley and Tibshirani, Robert},
 	Call-Number = {QA276.8},
 	Date-Added = {2019-04-30 17:38:54 -0700},
@@ -352,7 +288,8 @@
 	Title = {An introduction to the bootstrap},
 	Url = {http://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html},
 	Volume = {57},
-	Year = {1993}}
+	Year = {1993},
+	Bdsk-Url-1 = {http://www.loc.gov/catdir/enhancements/fy0730/93004489-d.html}}
 
 @article{kennedy2017,
 	Author = {Kennedy, Edward H and Ma, Zongming and McHugh, Matthew D and Small, Dylan S},
@@ -378,6 +315,35 @@
 
 @book{Laan:2011aa,
 	Address = {New York},
+	Annote = {LDR    01387cam  22003497a 4500
+001    16801910
+005    20190424124718.0
+008    110531s2011    nyua     b    001 0 eng d
+906    $a7$bcbc$ccopycat$d2$encip$f20$gy-gencatlg
+925 0  $aacquire$b1 shelf copy$xpolicy default
+925 1  $aacquire$b2 shelf copies$xpolicy default
+955    $bxh58 2012-01-03 z-processor$ixh58 2012-01-11 ; to Dewey 2011-01-11$trc11 2012-03-29 copy 2 added$axh14 2013-04-02 discard copy 3
+955    $apc17 2011-05-31$axh00 2011-12-22 to USPL/STM
+010    $a  2011930854
+020    $a9781441997814 (alk. paper)
+020    $a1441997814 (alk. paper)
+020    $a9781441997821 (e-ISBN)
+035    $a(OCoLC)ocn731921833
+040    $aBTCTA$beng$cBTCTA$dOHX$dYDXCP$dBWX$dCDX$dIXA$dUMR$dDLC
+042    $alccopycat
+050 00 $aQA276$b.L22 2011
+082 04 $a519.5$223
+100 1  $aLaan, M. J. van der.
+245 10 $aTargeted learning :$bcausal inference for observational and experimental data /$cMark J. Van der Laan ; Sherri Rose.
+260    $aNew York :$bSpringer,$cc2011.
+300    $alxxi, 626 p. :$bill. ;$c25 cm.
+490 1  $aSpringer series in statistics,$x0172-7397
+504    $aIncludes bibliographical references (p. 589-611) and index.
+650  0 $aMathematical statistics.
+650  0 $aInference.
+700 1  $aRose, Sherri.
+830  0 $aSpringer series in statistics.
+},
 	Author = {Laan, M. J. van der and Rose, Sherri},
 	Call-Number = {QA276},
 	Date-Added = {2019-04-30 17:33:47 -0700},
@@ -393,6 +359,33 @@
 
 @book{Agresti2010,
 	Address = {Hoboken, N.J.},
+	Annote = {LDR    01695cam  2200325 a 4500
+001    15929333
+005    20110506180303.0
+008    091001s2010    njua     b    001 0 eng  
+906    $a7$bcbc$corignew$d1$eecip$f20$gy-gencatlg
+925 0  $aacquire$b2 shelf copies$xpolicy default$eclaim1  2010-09-10$eclaim2  2011-01-19
+955    $bxh00 2009-10-01$ixh07 2009-10-01 to Dewey$wrd13 2009-10-01$axe10 2011-02-08 1 copy rec'd., to CIP ver.$frc02 2011-02-23 CIP VER to BCCD$tfc03 2011-05-06 copy 2 added
+010    $a  2009038760
+015    $aGBB004159$2bnb
+016 7  $a015461979$2Uk
+020    $a9780470082898 (cloth)
+020    $a0470082895 (cloth)
+035    $a(OCoLC)ocn445480016
+040    $aDLC$cDLC$dYDXCP$dCDX$dC#P$dBWX$dUKM$dI8H$dDLC
+050 00 $aQA278$b.A35 2010
+082 00 $a519.5/35$222
+100 1  $aAgresti, Alan.
+245 10 $aAnalysis of ordinal categorical data /$cAlan Agresti.
+250    $a2nd ed.
+260    $aHoboken, N.J. :$bWiley,$cc2010.
+300    $axi, 396 p. :$bill. ;$c25 cm.
+490 1  $aWiley series in probability and statistics
+504    $aIncludes bibliographical references and indexes.
+505 0  $aBasic Results for Cross-Classification Tables. Associations in Multidimensional Tables. Data Analysis Using Loglinear Models. Loglinear Models for Ordinal Variables. Logit Models. Logit Models for an Ordinal Response. Other Models for Ordinal Variables. Measures of Association for Ordinal Variables. Inference for Ordinal Measures of Association. Square Tables with Ordered Categories. Comparison of Ordinal Methods. Appendixes. Bibliography. Index.
+650  0 $aMultivariate analysis.
+830  0 $aWiley series in probability and statistics.
+},
 	Author = {Agresti, Alan},
 	Call-Number = {QA278},
 	Date-Added = {2019-04-30 17:32:20 -0700},
@@ -409,6 +402,38 @@
 
 @book{Armi2005,
 	Address = {Chichester, West Sussex, England},
+	Annote = {LDR    01799cam  22003854a 4500
+001    13801396
+005    20080411135149.0
+008    041129s2005    enka     be   001 0 eng  
+906    $a7$bcbc$corignew$d1$eecip$f20$gy-gencatlg
+925 0  $aacquire$b2 shelf copies$xpolicy default
+955    $ajc14 2004-11-29$ijc14 2004-11-29$ejc03 2004-12-01 to Dewey$aaa27 2004-12-02; ASSIGN TO SCIENCE READING ROOM ;$auf12 2006-03-29$auf15 2007-11-21 one copy (vols 1-8) to CIP; 2007-12-03 to CIP ver.$fjx12 2008-01-28 Z-CipVer$gjx12 2008-01-28 to BCCD
+010    $a  2004028292
+020    $a047084907X (set : cloth)
+020    $a9780470849071 (set : cloth)
+035    $a(OCoLC)ocm57168526
+035    $a(OCoLC)57168526
+040    $aDLC$cDLC$dYDX$dCOO$dBAKER$dBTCTA$dYDXCP$dU3Q$dUQ1$dDLC
+042    $apcc
+050 00 $aRA409$b.E53 2005
+082 00 $a610/.2/1$222
+245 00 $aEncyclopedia of biostatistics /$ceditors-in-chief, Peter Armitage, Theodore Colton.
+250    $a2nd ed.
+260    $aChichester, West Sussex, England ;$aHoboken, NJ :$bJohn Wiley,$cc2005.
+300    $a8 v. (lxxxiv, 6022) :$bill. ;$c26 cm.
+504    $aIncludes bibliographical references and indexes.
+505 0  $a1. A-Chap -- 2. Char-Dos -- 3. Dou-Gre -- 4. Gro-Mar -- 5. Mas-Nui -- 6. Nul-Ran -- 7. Rao-Str -- 8. Stu-Z. Index.
+650  0 $aMedical statistics$vEncyclopedias.
+650  0 $aBiometry$vEncyclopedias.
+655  7 $aEncyclop{\'e}die (Descripteur de forme)$2rasuqam
+700 1  $aArmitage, P.
+700 1  $aColton, Theodore.
+856 41 $3Table of contents$uhttp://www.loc.gov/catdir/toc/ecip054/2004028292.html
+856 42 $3Publisher description$uhttp://www.loc.gov/catdir/enhancements/fy0617/2004028292-d.html
+952    $aComplete in 8 v.
+991    $br-SciRR$hRA409$i.E53 2005$tCopy 1$wGenBib
+},
 	Author = {Armitage, P and Colton, Theodore},
 	Call-Number = {RA409},
 	Date-Added = {2019-04-30 17:30:23 -0700},
